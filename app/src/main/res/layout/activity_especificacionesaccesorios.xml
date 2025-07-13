@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Especificacionesaccesorios">
+
+    <Button
+        android:id="@+id/btn_siguiente2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="736dp"
+        android:backgroundTint="#012851"
+        android:text="Siguiente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_atras2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="736dp"
+        android:backgroundTint="#A20724"
+        android:text="Atras"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="232dp"
+        android:text="De bola"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="232dp"
+        android:text="De 90°"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="352dp"
+        android:text="De globo"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="76dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="352dp"
+        android:foregroundGravity="center"
+        android:gravity="center_horizontal"
+        android:text="Valvula de retorno"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/a2"
+        android:layout_width="76dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="580dp"
+        android:foregroundGravity="center"
+        android:gravity="center_horizontal"
+        android:text="Valvula de presión"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="292dp"
+        android:text="De ángulo"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="520dp"
+        android:text="De ángulo"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="71dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="520dp"
+        android:text="Llave de paso"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="584dp"
+        android:text="De ángulo"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="292dp"
+        android:text="De 45°"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="176dp"
+        android:text="Valvula"
+        android:textColor="#012851"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="176dp"
+        android:text="Codos"
+        android:textColor="#012851"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="464dp"
+        android:text="Tee"
+        android:textColor="#012851"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="464dp"
+        android:text="Cabezales"
+        android:textColor="#012851"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:text="Especificaciones hidráulicas en la bomba"
+        android:textAlignment="center"
+        android:textColor="#012851"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="232dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch1"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="292dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch2"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="576dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch3"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="512dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch4"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="584dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch5"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="520dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch6"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="352dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch7"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="280dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch8"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="232dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch9"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="352dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/white"
+        app:stepperActionsDisabledColor="@color/white"
+        app:stepperBackgroundColor="@color/light_blue"
+        app:stepperButtonColor="@color/dark_blue"
+        app:stepperTextColor="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
