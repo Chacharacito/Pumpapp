@@ -226,9 +226,8 @@
         android:layout_marginTop="508dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 </androidx.constraintlayout.widget.ConstraintLayout>
