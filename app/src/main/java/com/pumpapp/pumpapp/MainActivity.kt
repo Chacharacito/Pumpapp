@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         ibRiegoPorAspersion.setImageResource(R.drawable.riego_por_aspersion)
 
         ibRiegoPorAspersion.setOnClickListener {
-            startActivity(Intent(this, EspecificacionesHidraulicasActivity::class.java))
+            startActivity(Intent(this, RiegoPorInundacionActivity::class.java))
         }
 
         val ibRiegoPorInundacion = findViewById<ImageButton>(R.id.ib_inundacion)

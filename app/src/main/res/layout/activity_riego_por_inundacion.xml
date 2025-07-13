@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RiegoPorGravedadActivity">
+    tools:context=".RiegoPorInundacionActivity">
 
     <Button
         android:id="@+id/btn_atras2"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_altura8"
+        android:id="@+id/et_tiempo_de_riego"
         android:layout_width="186dp"
         android:layout_height="40dp"
         android:layout_marginStart="144dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_altura9"
+        android:id="@+id/et_filtracion_del_suelo"
         android:layout_width="183dp"
         android:layout_height="43dp"
         android:layout_marginStart="146dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/s_sistema_unidades2"
+        android:id="@+id/s_textura_del_suelo"
         style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="187dp"
         android:layout_height="43dp"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_altura2"
+        android:id="@+id/et_pendiente_del_terreno"
         android:layout_width="183dp"
         android:layout_height="46dp"
         android:layout_marginStart="145dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_altura6"
+        android:id="@+id/et_longitud_del_surco"
         android:layout_width="184dp"
         android:layout_height="41dp"
         android:layout_marginStart="144dp"
@@ -183,7 +183,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_altura7"
+        android:id="@+id/et_ancho_del_surco"
         android:layout_width="184dp"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
@@ -198,9 +198,9 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="42dp"
-        android:text="Riego por Gravedad"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:text="Riego por Inundación"
         android:textAlignment="center"
         android:textColor="#012851"
         android:textSize="34sp"
@@ -218,11 +218,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch"
+        android:id="@+id/st_numero_de_surcos"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="510dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="508dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:stepperActionsColor="@color/white"
