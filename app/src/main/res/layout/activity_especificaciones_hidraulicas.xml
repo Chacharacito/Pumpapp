@@ -92,9 +92,8 @@
 
     <View
         android:id="@+id/divider4"
-        android:layout_width="389dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="3dp"
+        android:layout_width="393dp"
+        android:layout_height="12dp"
         android:layout_marginTop="116dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
