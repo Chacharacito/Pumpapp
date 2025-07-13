@@ -13,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.pumpapp.pumpapp.MainActivity.Companion.DATO_SISTEMA_DE_UNIDADES
 import kotlin.math.pow
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
@@ -35,10 +36,8 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
         //no borrar esta parte me permite cambiar los hints de caudal altura y diametro de acuerdo a las unidades seleccionadas
         //en la pantalla principal
-        val intent1 : Intent = intent
-        val datoselct = intent1.getStringExtra("Sistema de unidades")
-
-
+        val intentoActual: Intent = intent
+        val sistemaSeleccion = intentoActual.getStringExtra(DATO_SISTEMA_DE_UNIDADES)
 
         val materiales = arrayOf("PVC", "Acero", "Plástico", "Hierro")
         sMaterialDeLaTuberia.adapter = ArrayAdapter<String>(
@@ -49,62 +48,50 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
         //inicio de los calculos iniciales
 
-        var materialselec : String? = null
+        var materialSeleccionado: String? = null
 
-        sMaterialDeLaTuberia.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        sMaterialDeLaTuberia.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                materialselec = materiales[position]
+                materialSeleccionado = materiales[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
-
         }
 
-        var rugosidad : Double? = null
-
-        if (materialselec == "Acero"){
-
-            rugosidad = 4.6 * (Math.pow(10.0, (-5).toDouble()))
-
-        }else if (materialselec == "Plastico") {
-
-            rugosidad = 3 * (Math.pow(10.0, (-7).toDouble()))
-
-        }else if (materialselec == "Hierro") {
-
-            rugosidad = 1.5 * (Math.pow(10.0, (-4).toDouble()))
-
-        }else{
-
-            rugosidad = 2.3 * (Math.pow(10.0, (-6).toDouble()))
-
+        var rugosidad: Double? = if (materialSeleccionado == "Acero") {
+            4.6 * (10.0.pow((-5).toDouble()))
+        } else if (materialSeleccionado == "Plastico") {
+            3 * (10.0.pow((-7).toDouble()))
+        } else if (materialSeleccionado == "Hierro") {
+            1.5 * (10.0.pow((-4).toDouble()))
+        } else {
+            2.3 * (10.0.pow((-6).toDouble()))
         }
 
-        if (datoselct == "Internacional") {
+        if (sistemaSeleccion == "Internacional") {
             altura.setHint("m")
             caudal.setHint("m³/s")
             diametro.setHint("m")
             presion.setHint("kPa")
-        }else{
+        } else {
             altura.setHint("ft")
             caudal.setHint("ft³/s")
             diametro.setHint("ft")
             presion.setHint("psi")
         }
 
-
         val btnAtras = findViewById<Button>(R.id.btn_atras)
         btnAtras.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-            val pasar = MediaPlayer.create(this, R.raw.kara)
-            pasar.start()
+            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
+            sonidoPasar.start()
         }
     }
 }

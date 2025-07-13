@@ -12,8 +12,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        const val SELECCION_SISTEMA = "selecion_sistema"
+        const val POSICION_ELIGIDA = "posicion_elegidad"
+
+        const val DATO_SISTEMA_DE_UNIDADES = "sistema_de_unidades"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,14 +42,13 @@ class MainActivity : AppCompatActivity() {
             sistemas
         )
 
-        //obtengo el dato seleccionado
-        var sistemaselecion: String? = null
-        val prefrerence = getSharedPreferences("seleci", MODE_PRIVATE)
-        val posicionG = prefrerence.getInt("Posicion_elegidad",0)
-        sSistemaUnidades.setSelection(posicionG)
+        //Obtengo el dato seleccionado
+        var sistemaSelecion: String? = null
+        val prefrerence = getSharedPreferences(SELECCION_SISTEMA, MODE_PRIVATE)
+        val posicionEligida = prefrerence.getInt(POSICION_ELIGIDA, 0)
+        sSistemaUnidades.setSelection(posicionEligida)
 
-
-        sSistemaUnidades.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        sSistemaUnidades.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -48,11 +56,10 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
 
-                val editor = prefrerence.edit()
-                editor.putInt("Posicion_elegidad", position)
-                editor.apply()
-                sistemaselecion = sistemas[position]
-
+                prefrerence.edit() {
+                    putInt(POSICION_ELIGIDA, position)
+                }
+                sistemaSelecion = sistemas[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -60,44 +67,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-
         val ibRiegoPorGoteo = findViewById<ImageButton>(R.id.ib_goteo)
         ibRiegoPorGoteo.setImageResource(R.drawable.riego_por_goteo)
 
         ibRiegoPorGoteo.setOnClickListener {
-            val intent1 = Intent(this, EspecificacionesHidraulicasActivity::class.java)
-            intent1.putExtra("Sistema de unidades" , sistemaselecion )
-            startActivity(intent1)
+            val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
+            intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            startActivity(intent)
 
-            val pasar = MediaPlayer.create(this, R.raw.kara)
-            pasar.start()
+            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
+            sonidoPasar.start()
         }
 
         val ibRiegoPorAspersion = findViewById<ImageButton>(R.id.ib_aspersion)
         ibRiegoPorAspersion.setImageResource(R.drawable.riego_por_aspersion)
 
         ibRiegoPorAspersion.setOnClickListener {
-            val intent2 = Intent(this, EspecificacionesHidraulicasActivity::class.java)
-            intent2.putExtra("Sistema de unidades" , sistemaselecion )
-            startActivity(intent2)
+            val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
+            intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            startActivity(intent)
 
-            val pasar = MediaPlayer.create(this, R.raw.kara)
-            pasar.start()
+            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
+            sonidoPasar.start()
         }
 
         val ibRiegoPorInundacion = findViewById<ImageButton>(R.id.ib_inundacion)
         ibRiegoPorInundacion.setImageResource(R.drawable.riego_por_inundacion)
 
         ibRiegoPorInundacion.setOnClickListener {
-            val intent3 = Intent(this, EspecificacionesHidraulicasActivity::class.java)
-            intent3.putExtra("Sistema de unidades" , sistemaselecion )
-            startActivity(intent3)
+            val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
+            intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            startActivity(intent)
 
-            val pasar = MediaPlayer.create(this, R.raw.kara)
-            pasar.start()
+            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
+            sonidoPasar.start()
         }
     }
 }
