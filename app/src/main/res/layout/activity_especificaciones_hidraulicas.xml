@@ -182,28 +182,28 @@
             android:id="@+id/rb_codos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/custom_blue"
+            app:buttonTint="@color/dark_blue"
             android:text="Codos" />
 
         <RadioButton
             android:id="@+id/rb_valvulas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/custom_blue"
+            app:buttonTint="@color/dark_blue"
             android:text="Válvulas" />
 
         <RadioButton
             android:id="@+id/rb_te"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/custom_blue"
+            app:buttonTint="@color/dark_blue"
             android:text="Té" />
 
         <RadioButton
             android:id="@+id/rb_cabezales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/custom_blue"
+            app:buttonTint="@color/dark_blue"
             android:text="Cabezales" />
 
     </com.google.android.material.chip.ChipGroup>
