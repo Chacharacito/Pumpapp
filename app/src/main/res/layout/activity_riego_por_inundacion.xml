@@ -8,25 +8,25 @@
     tools:context=".RiegoPorInundacionActivity">
 
     <Button
-        android:id="@+id/btn_atras2"
+        android:id="@+id/btn_siguiente2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="704dp"
-        android:backgroundTint="#A20724"
-        android:text="Atras"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="#012851"
+        android:text="Siguiente"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_siguiente2"
+        android:id="@+id/btn_atras2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="704dp"
-        android:backgroundTint="#012851"
-        android:text="Siguiente"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="#A20724"
+        android:text="Atras"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -210,10 +210,11 @@
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="411dp"
-        android:layout_height="21dp"
+        android:layout_width="402dp"
+        android:layout_height="15dp"
         android:layout_marginTop="124dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -51,8 +51,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
         val ibRiegoPorGoteo = findViewById<ImageButton>(R.id.ib_goteo)
         ibRiegoPorGoteo.setImageResource(R.drawable.riego_por_goteo)
 
