@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PumpApp"
         tools:targetApi="31">
         <activity
+            android:name=".ResumenActivity"
+            android:exported="false" />
+        <activity
             android:name=".RiegoPorInundacionActivity"
             android:exported="false" />
         <activity
