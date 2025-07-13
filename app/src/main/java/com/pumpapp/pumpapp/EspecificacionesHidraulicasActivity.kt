@@ -38,17 +38,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         val intent1 : Intent = intent
         val datoselct = intent1.getStringExtra("Sistema de unidades")
 
-        if (datoselct == "Internacional") {
-            altura.setHint("m")
-            caudal.setHint("m³/s")
-            diametro.setHint("m")
-            presion.setHint("kPa")
-        }else{
-            altura.setHint("ft")
-            caudal.setHint("ft³/s")
-            diametro.setHint("ft")
-            presion.setHint("psi")
-        }
 
 
         val materiales = arrayOf("PVC", "Acero", "Plástico", "Hierro")
@@ -97,6 +86,19 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             rugosidad = 2.3 * (Math.pow(10.0, (-6).toDouble()))
 
         }
+
+        if (datoselct == "Internacional") {
+            altura.setHint("m")
+            caudal.setHint("m³/s")
+            diametro.setHint("m")
+            presion.setHint("kPa")
+        }else{
+            altura.setHint("ft")
+            caudal.setHint("ft³/s")
+            diametro.setHint("ft")
+            presion.setHint("psi")
+        }
+
 
         val btnAtras = findViewById<Button>(R.id.btn_atras)
         btnAtras.setOnClickListener {
