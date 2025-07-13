@@ -35,6 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         //obtengo el dato seleccionado
         var sistemaselecion: String? = null
+        val prefrerence = getSharedPreferences("seleci", MODE_PRIVATE)
+        val posicionG = prefrerence.getInt("Posicion_elegidad",0)
+        sSistemaUnidades.setSelection(posicionG)
+
 
         sSistemaUnidades.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -43,13 +47,22 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
+
+                val editor = prefrerence.edit()
+                editor.putInt("Posicion_elegidad", position)
+                editor.apply()
                 sistemaselecion = sistemas[position]
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
         }
+
+
+
+
 
         val ibRiegoPorGoteo = findViewById<ImageButton>(R.id.ib_goteo)
         ibRiegoPorGoteo.setImageResource(R.drawable.riego_por_goteo)
