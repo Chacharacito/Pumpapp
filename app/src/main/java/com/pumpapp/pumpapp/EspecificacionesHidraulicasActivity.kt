@@ -75,6 +75,8 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             2.3 * (10.0.pow((-6).toDouble()))
         }
 
+
+
         if (sistemaSeleccion == "Internacional") {
             altura.setHint("m")
             caudal.setHint("m³/s")
