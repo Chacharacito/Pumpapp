@@ -21,9 +21,8 @@
 
     <View
         android:id="@+id/divider4"
-        android:layout_width="410dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="3dp"
+        android:layout_width="412dp"
+        android:layout_height="20dp"
         android:layout_marginTop="124dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,8 +147,8 @@
         android:id="@+id/btn_siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="736dp"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="704dp"
         android:backgroundTint="#012851"
         android:text="Siguiente"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -160,8 +159,8 @@
         android:id="@+id/btn_atras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="736dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="704dp"
         android:backgroundTint="#A20724"
         android:text="Atras"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -182,29 +181,29 @@
             android:id="@+id/rb_codos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/dark_blue"
-            android:text="Codos" />
+            android:text="Codos"
+            app:buttonTint="@color/dark_blue" />
 
         <RadioButton
             android:id="@+id/rb_valvulas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/dark_blue"
-            android:text="Válvulas" />
+            android:text="Válvulas"
+            app:buttonTint="@color/dark_blue" />
 
         <RadioButton
             android:id="@+id/rb_te"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/dark_blue"
-            android:text="Té" />
+            android:text="Té"
+            app:buttonTint="@color/dark_blue" />
 
         <RadioButton
             android:id="@+id/rb_cabezales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/dark_blue"
-            android:text="Cabezales" />
+            android:text="Cabezales"
+            app:buttonTint="@color/dark_blue" />
 
     </com.google.android.material.chip.ChipGroup>
 
