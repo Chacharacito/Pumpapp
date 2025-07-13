@@ -29,13 +29,17 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
         val sMaterialDeLaTuberia = findViewById<Spinner>(R.id.s_material_de_la_tuberia)
 
-        val altura = findViewById<EditText>(R.id.et_altura)
-        val caudal = findViewById<EditText>(R.id.et_caudal)
-        val diametro = findViewById<EditText>(R.id.et_diametro)
-        val presion = findViewById<EditText>(R.id.et_presion)
+        val etAltura = findViewById<EditText>(R.id.et_altura)
+        val etCaudal = findViewById<EditText>(R.id.et_caudal)
+        val etDiametro = findViewById<EditText>(R.id.et_diametro)
+        val etPresion = findViewById<EditText>(R.id.et_presion)
 
-        //no borrar esta parte me permite cambiar los hints de caudal altura y diametro de acuerdo a las unidades seleccionadas
-        //en la pantalla principal
+        /**
+         *
+         * no borrar esta parte me permite cambiar los hints de caudal altura y diametro de acuerdo a las unidades seleccionadas
+         * en la pantalla principal
+         */
+
         val intentoActual: Intent = intent
         val sistemaSeleccion = intentoActual.getStringExtra(DATO_SISTEMA_DE_UNIDADES)
 
@@ -76,15 +80,15 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         }
 
         if (sistemaSeleccion == "Internacional") {
-            altura.setHint("m")
-            caudal.setHint("m³/s")
-            diametro.setHint("m")
-            presion.setHint("kPa")
+            etAltura.setHint("m")
+            etCaudal.setHint("m³/s")
+            etDiametro.setHint("m")
+            etPresion.setHint("kPa")
         } else {
-            altura.setHint("ft")
-            caudal.setHint("ft³/s")
-            diametro.setHint("ft")
-            presion.setHint("psi")
+            etAltura.setHint("ft")
+            etCaudal.setHint("ft³/s")
+            etDiametro.setHint("ft")
+            etPresion.setHint("psi")
         }
 
         val btnAtras = findViewById<Button>(R.id.btn_atras)
