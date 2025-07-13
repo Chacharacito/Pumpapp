@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         const val POSICION_ELIGIDA = "posicion_elegidad"
 
         const val DATO_SISTEMA_DE_UNIDADES = "sistema_de_unidades"
+
+        const val SISTEMA_RIEGO_GOTEO = 1
+        const val SISTEMA_RIEGO_ASPERSION = 2
+        const val SISTEMA_RIEGO_INUNDACION = 3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +77,7 @@ class MainActivity : AppCompatActivity() {
         ibRiegoPorGoteo.setOnClickListener {
             val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
             intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            intent.putExtra("sistemaRiego" , SISTEMA_RIEGO_GOTEO)
             startActivity(intent)
 
             val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
@@ -85,6 +90,7 @@ class MainActivity : AppCompatActivity() {
         ibRiegoPorAspersion.setOnClickListener {
             val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
             intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            intent.putExtra("sistemaRiego" , SISTEMA_RIEGO_ASPERSION)
             startActivity(intent)
 
             val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
@@ -97,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         ibRiegoPorInundacion.setOnClickListener {
             val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java)
             intent.putExtra(DATO_SISTEMA_DE_UNIDADES, sistemaSelecion)
+            intent.putExtra("sistemaRiego" , SISTEMA_RIEGO_INUNDACION)
             startActivity(intent)
 
             val sonidoPasar = MediaPlayer.create(this, R.raw.kara)

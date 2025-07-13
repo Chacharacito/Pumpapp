@@ -9,11 +9,15 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.DATO_SISTEMA_DE_UNIDADES
+import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_RIEGO_GOTEO
+import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_RIEGO_INUNDACION
+import com.pumpapp.pumpapp.sistemas.RiegoPorInundacionActivity
 import kotlin.math.pow
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
@@ -42,6 +46,8 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
         val intentoActual: Intent = intent
         val sistemaSeleccion = intentoActual.getStringExtra(DATO_SISTEMA_DE_UNIDADES)
+        //TODO: MEJORAR SISTEMA DE VALOR POR DEFECTO
+        val sistemaRiego = intentoActual.getIntExtra("sistemaRiego",0)
 
         val materiales = arrayOf("PVC", "Acero", "Plástico", "Hierro")
         sMaterialDeLaTuberia.adapter = ArrayAdapter<String>(
@@ -79,8 +85,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             2.3 * (10.0.pow((-6).toDouble()))
         }
 
-
-
         if (sistemaSeleccion == "Internacional") {
             etAltura.setHint("m")
             etCaudal.setHint("m³/s")
@@ -91,6 +95,25 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             etCaudal.setHint("ft³/s")
             etDiametro.setHint("ft")
             etPresion.setHint("psi")
+        }
+
+        val btnSiguiente = findViewById<Button>(R.id.btn_siguiente)
+        btnSiguiente.setOnClickListener {
+            if (!(etDiametro.text.isEmpty() || etAltura.text.isEmpty() || etCaudal.text.isEmpty() || etPresion.text.isEmpty())) {
+                var areaTuberia: Double = (((etDiametro.text.toString().toDouble()).pow((2).toDouble()) * Math.PI) / 4)
+                var velocidadFluido: Double = ((etCaudal.text.toString().toDouble()) / areaTuberia)
+                val intent = when (sistemaRiego) {
+                    SISTEMA_RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
+                    else -> Intent(this, MainActivity::class.java)
+                }
+                intent.putExtra("areaTuberia" , areaTuberia)
+                intent.putExtra("velocidadFluido" , velocidadFluido)
+                startActivity(intent)
+                val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
+                sonidoPasar.start()
+            }else{
+                Toast.makeText(this, "No deben haber campos vacios", Toast.LENGTH_SHORT).show()
+            }
         }
 
         val btnAtras = findViewById<Button>(R.id.btn_atras)
