@@ -12,7 +12,7 @@ enum class TipoAccesorio (val clave: String) {
     CABEZAL_LLAVE_DE_PASO("cabezalLllaveDePaso"),
     CABEZAL_VALVULA_PRESION("cabezalValbulaDePresion");
 
-    fun getClave(): String {
-        return clave
+    fun obtenerClaveFormateada(): String {
+        return clave.uppercase()
     }
 }

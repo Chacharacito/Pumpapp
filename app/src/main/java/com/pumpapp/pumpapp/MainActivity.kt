@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         const val SISTEMA_INTERNACIONAL = "Internacional"
         const val SISTEMA_IMPERIAL = "Imperial"
 
-        fun lanzarActividadEspecificaciones(context: Context, tipoRiego: Int, sistemaUnidades: String) {
+        fun lanzarActividadEspecificacionesHidraulicas(context: Context, tipoRiego: Int, sistemaUnidades: String) {
             val intent = Intent(context, EspecificacionesHidraulicasActivity::class.java).apply {
                 putExtra(EXTRA_SISTEMA_UNIDADES, sistemaUnidades)
                 putExtra(EXTRA_SISTEMA_RIEGO, tipoRiego)
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_goteo).apply {
             setImageResource(R.drawable.riego_por_goteo)
             setOnClickListener {
-                lanzarActividadEspecificaciones(this@MainActivity, RIEGO_GOTEO, sistemaSeleccionado)
+                lanzarActividadEspecificacionesHidraulicas(this@MainActivity, RIEGO_GOTEO, sistemaSeleccionado)
                 sonidoPasar.start()
             }
         }
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_inundacion).apply {
             setImageResource(R.drawable.riego_por_inundacion)
             setOnClickListener {
-                lanzarActividadEspecificaciones(this@MainActivity, RIEGO_INUNDACION, sistemaSeleccionado)
+                lanzarActividadEspecificacionesHidraulicas(this@MainActivity, RIEGO_INUNDACION, sistemaSeleccionado)
                 sonidoPasar.start()
             }
         }

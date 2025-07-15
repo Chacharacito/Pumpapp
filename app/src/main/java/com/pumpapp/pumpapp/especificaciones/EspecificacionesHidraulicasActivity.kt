@@ -16,18 +16,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity
 import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
 import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
-import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 import com.pumpapp.pumpapp.R
 import com.pumpapp.pumpapp.SistemaUnidades
 import com.pumpapp.pumpapp.calculos.CalculosGenerales
-import com.pumpapp.pumpapp.riegos.RiegoGoteoActivity
-import com.pumpapp.pumpapp.riegos.RiegoInundacionActivity
 import kotlin.math.PI
 import kotlin.math.pow
 
@@ -56,7 +52,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val RUGOSIDAD_PLASTICO = 3e-7
         private const val RUGOSIDAD_HIERRO = 1.5e-4
         private const val RUGOSIDAD_PVC = 2.3e-6
-
 
         fun limpiarPreferencias(context: Context) {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
@@ -111,10 +106,9 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             }
         }
 
-        val sistemaSeleccion =
-            intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
+        val sistemaUnidades = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
 
-        if (sistemaSeleccion == SISTEMA_INTERNACIONAL) {
+        if (sistemaUnidades == SISTEMA_INTERNACIONAL) {
             editTextAltura.hint = "m"
             editTextCaudal.hint = "m³/s"
             editTextDiametro.hint = "m"
@@ -153,13 +147,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             val areaTuberia = (PI * diametro.pow(2)) / 4
             val velocidadFluido = caudal / areaTuberia
 
-            val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
-            val intent = when (sistemaRiego) {
-                RIEGO_INUNDACION -> Intent(this, RiegoInundacionActivity::class.java)
-                RIEGO_GOTEO -> Intent(this, RiegoGoteoActivity::class.java)
-                else -> Intent(this, MainActivity::class.java)
-            }
-
             prefs.edit().apply {
                 putString(PREF_ALTURA, alturaTxt)
                 putString(PREF_CAUDAL, caudalTxt)
@@ -169,26 +156,28 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 apply()
             }
 
-            intent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
-            intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
-            intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
-            intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
+            val nuevoIntent = Intent(this, EspecificacionesAccesoriosActivity::class.java)
+            nuevoIntent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaUnidades)
+            nuevoIntent.putExtra(EXTRA_SISTEMA_RIEGO, intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO))
+            nuevoIntent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
+            nuevoIntent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
+            nuevoIntent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
 
             val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(
                 velocidadFluido,
                 diametro,
-                if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
+                if (sistemaUnidades == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
             )
 
-            if (numeroReynolds.toDouble() < 0) {
+            if (numeroReynolds < 0) {
                 Toast.makeText(this, "Número de Reynolds erronoeo", Toast.LENGTH_SHORT).show()
 
                 return@setOnClickListener
             }
 
-            intent.putExtra(EXTRA_NUMERO_REYNOLDS, numeroReynolds)
+            nuevoIntent.putExtra(EXTRA_NUMERO_REYNOLDS, numeroReynolds)
 
-            intent.putExtra(
+            nuevoIntent.putExtra(
                 EXTRA_FACTOR_FRICCION,
                 CalculosGenerales.calcularFactorFriccion(
                     this,
@@ -198,7 +187,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 )
             )
 
-            startActivity(intent)
+            startActivity(nuevoIntent)
 
             sonidoPasar.start()
         }

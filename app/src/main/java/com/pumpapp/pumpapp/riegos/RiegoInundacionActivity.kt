@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
-import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecificaciones
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecificacionesHidraulicas
 import com.pumpapp.pumpapp.R
 
 class RiegoInundacionActivity : AppCompatActivity() {
@@ -46,7 +46,7 @@ class RiegoInundacionActivity : AppCompatActivity() {
         val sistemaSeleccion = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
 
         findViewById<Button>(R.id.btn_atras2).setOnClickListener {
-            lanzarActividadEspecificaciones(this@RiegoInundacionActivity, RIEGO_INUNDACION, sistemaSeleccion)
+            lanzarActividadEspecificacionesHidraulicas(this@RiegoInundacionActivity, RIEGO_INUNDACION, sistemaSeleccion)
             MediaPlayer.create(this, R.raw.kara).start()
         }
     }
