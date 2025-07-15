@@ -1,6 +1,5 @@
 package com.pumpapp.pumpapp
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -27,7 +26,6 @@ class ResumenActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btn_inicio).setOnClickListener {
             lanzarActividadPrincipal(this@ResumenActivity)
-            MediaPlayer.create(this, R.raw.kara).start()
         }
     }
 }

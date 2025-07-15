@@ -22,15 +22,6 @@
             android:name=".riegos.RiegoGoteoActivity"
             android:exported="false" />
         <activity
-            android:name=".riegos.RiegoAspersionDHActivity"
-            android:exported="false" />
-        <activity
-            android:name=".riegos.RiegoAspersionAspersorActivity"
-            android:exported="false" />
-        <activity
-            android:name=".riegos.RiegoAspersionDAActivity"
-            android:exported="false" />
-        <activity
             android:name=".especificaciones.EspecificacionesAccesoriosActivity"
             android:exported="false" />
         <activity

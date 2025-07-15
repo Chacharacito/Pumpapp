@@ -2,8 +2,8 @@ package com.pumpapp.pumpapp.calculos
 
 import android.content.Context
 import android.widget.Toast
-import com.pumpapp.pumpapp.SistemaUnidades
-import com.pumpapp.pumpapp.TipoAccesorio
+import com.pumpapp.pumpapp.enums.SistemaUnidades
+import com.pumpapp.pumpapp.enums.TipoAccesorio
 
 class CalculosGenerales {
 
@@ -22,9 +22,9 @@ class CalculosGenerales {
         fun calcularNumeroReynolds(
             velocidad: Double,
             diametro: Double,
-            sistemaDeUnidades: SistemaUnidades = SistemaUnidades.INTERNACIONAL
+            sistemaUnidades: SistemaUnidades = SistemaUnidades.INTERNACIONAL
         ): Double {
-            return when (sistemaDeUnidades) {
+            return when (sistemaUnidades) {
                 SistemaUnidades.INTERNACIONAL -> (velocidad * diametro * DENSIDAD_SI) / VISCOSIDAD_SI
                 SistemaUnidades.IMPERIAL -> (velocidad * diametro * DENSIDAD_IMPERIAL) / VISCOSIDAD_IMPERIAL
             }

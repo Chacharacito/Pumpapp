@@ -16,13 +16,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
-import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
-import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
-import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
+import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
-import com.pumpapp.pumpapp.SistemaUnidades
+import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.calculos.CalculosGenerales
 import kotlin.math.PI
 import kotlin.math.pow
@@ -30,7 +28,8 @@ import kotlin.math.pow
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
     companion object {
-        private const val PREFS_NAME = "especificaciones_hidraulicas"
+        const val PREFS_NAME = "especificaciones_hidraulicas"
+
         private const val PREF_ALTURA = "pref_altura"
         private const val PREF_CAUDAL = "pref_caudal"
         private const val PREF_DIAMETRO = "pref_diametro"
@@ -57,6 +56,31 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
                 clear()
             }
+        }
+
+        fun obtenerAreaTuberia(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_AREA_TUBERIA, 0f).toDouble()
+        }
+
+        fun obtenerVelocidadFluido(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_VELOCIDAD_FLUIDO, 0f).toDouble()
+        }
+
+        fun obtenerRugosidad(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_RUGOSIDAD, 0f).toDouble()
+        }
+
+        fun obtenerNumeroReynolds(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_NUMERO_REYNOLDS, 0f).toDouble()
+        }
+
+        fun obtenerFactorFriccion(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_FACTOR_FRICCION, 0f).toDouble()
         }
     }
 
@@ -106,9 +130,9 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             }
         }
 
-        val sistemaUnidades = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
+        val sistemaUnidades = obtenerSistemaUnidadesDesdePrefs(this@EspecificacionesHidraulicasActivity)
 
-        if (sistemaUnidades == SISTEMA_INTERNACIONAL) {
+        if (sistemaUnidades == SistemaUnidades.INTERNACIONAL) {
             editTextAltura.hint = "m"
             editTextCaudal.hint = "m³/s"
             editTextDiametro.hint = "m"
@@ -127,8 +151,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         editTextDiametro.setText(prefs.getString(PREF_DIAMETRO, ""))
         editTextPresion.setText(prefs.getString(PREF_PRESION, ""))
         spinnerMaterial.setSelection(prefs.getInt(PREF_MATERIAL_POS, 0))
-
-        val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
 
         findViewById<Button>(R.id.btn_siguiente).setOnClickListener {
             val alturaTxt = editTextAltura.text.toString()
@@ -153,48 +175,42 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 putString(PREF_DIAMETRO, diametroTxt)
                 putString(PREF_PRESION, presionTxt)
                 putInt(PREF_MATERIAL_POS, spinnerMaterial.selectedItemPosition)
-                apply()
-            }
 
-            val nuevoIntent = Intent(this, EspecificacionesAccesoriosActivity::class.java)
-            nuevoIntent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaUnidades)
-            nuevoIntent.putExtra(EXTRA_SISTEMA_RIEGO, intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO))
-            nuevoIntent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
-            nuevoIntent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
-            nuevoIntent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
+                putFloat(EXTRA_AREA_TUBERIA, areaTuberia.toFloat())
+                putFloat(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido.toFloat())
+                putFloat(EXTRA_RUGOSIDAD, rugosidad.toFloat())
 
-            val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(
-                velocidadFluido,
-                diametro,
-                if (sistemaUnidades == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
-            )
+                val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(
+                    velocidadFluido,
+                    diametro,
+                    sistemaUnidades
+                )
 
-            if (numeroReynolds < 0) {
-                Toast.makeText(this, "Número de Reynolds erronoeo", Toast.LENGTH_SHORT).show()
+                if (numeroReynolds < 0) {
+                    Toast.makeText(this@EspecificacionesHidraulicasActivity, "Número de Reynolds erróneo", Toast.LENGTH_SHORT).show()
 
-                return@setOnClickListener
-            }
+                    return@setOnClickListener
+                }
 
-            nuevoIntent.putExtra(EXTRA_NUMERO_REYNOLDS, numeroReynolds)
+                putFloat(EXTRA_NUMERO_REYNOLDS, numeroReynolds.toFloat())
 
-            nuevoIntent.putExtra(
-                EXTRA_FACTOR_FRICCION,
-                CalculosGenerales.calcularFactorFriccion(
-                    this,
+                val factorFriccion = CalculosGenerales.calcularFactorFriccion(
+                    this@EspecificacionesHidraulicasActivity,
                     diametro,
                     rugosidad,
                     numeroReynolds
                 )
-            )
 
-            startActivity(nuevoIntent)
+                putFloat(EXTRA_FACTOR_FRICCION, factorFriccion.toFloat())
 
-            sonidoPasar.start()
+                apply()
+            }
+
+            lanzarActividadEspecAccesorios(this@EspecificacionesHidraulicasActivity)
         }
 
         findViewById<Button>(R.id.btn_atras).setOnClickListener {
             lanzarActividadPrincipal(this@EspecificacionesHidraulicasActivity)
-            sonidoPasar.start()
         }
     }
 }

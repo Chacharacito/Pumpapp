@@ -1,5 +1,6 @@
 package com.pumpapp.pumpapp.especificaciones
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
@@ -7,12 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
-import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
-import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
-import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
-import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecificacionesHidraulicas
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecHidraulicas
+import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaRiegoDesdePrefs
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.enums.SistemaRiego
+import com.pumpapp.pumpapp.riegos.RiegoGoteoActivity
+import com.pumpapp.pumpapp.riegos.RiegoInundacionActivity
 
 class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
@@ -26,11 +27,21 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
             insets
         }
 
-        val sistemaRiego = (intent.getStringExtra(EXTRA_SISTEMA_RIEGO) ?: RIEGO_GOTEO).toString().toInt()
-        val sistemaUnidades = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
+        findViewById<Button>(R.id.btn_siguiente3).setOnClickListener {
+            val sistemaRiego =
+                obtenerSistemaRiegoDesdePrefs(this@EspecificacionesAccesoriosActivity)
+
+            val intent = when (sistemaRiego) {
+                SistemaRiego.RIEGO_GOTEO -> Intent(this, RiegoGoteoActivity::class.java)
+                SistemaRiego.RIEGO_INUNDACION -> Intent(this, RiegoInundacionActivity::class.java)
+            }
+
+            startActivity(intent)
+            MediaPlayer.create(this, R.raw.kara).start()
+        }
 
         findViewById<Button>(R.id.btn_atras3).setOnClickListener {
-            lanzarActividadEspecificacionesHidraulicas(this@EspecificacionesAccesoriosActivity, sistemaRiego, sistemaUnidades)
+            lanzarActividadEspecHidraulicas(this@EspecificacionesAccesoriosActivity)
             MediaPlayer.create(this, R.raw.kara).start()
         }
     }

@@ -1,4 +1,4 @@
-package com.pumpapp.pumpapp
+package com.pumpapp.pumpapp.enums
 
 enum class TipoAccesorio (val clave: String) {
     VALVULA_DE_BOLA("valbulaDeBola"),
