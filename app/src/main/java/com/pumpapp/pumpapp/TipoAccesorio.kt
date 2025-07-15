@@ -11,4 +11,8 @@ enum class TipoAccesorio (val clave: String) {
     TE_FLUJO_INVERTIDO("teDeFlujoInvertido"),
     CABEZAL_LLAVE_DE_PASO("cabezalLllaveDePaso"),
     CABEZAL_VALVULA_PRESION("cabezalValbulaDePresion")
+
+    fun getClave(): String {
+        return clave
+    }
 }
