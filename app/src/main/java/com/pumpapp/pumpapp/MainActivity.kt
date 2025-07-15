@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val PREF_SISTEMA_UNIDADES = "pref_sistema_unidades"
+        const val PREFERENCES_CONTAINER = "pumpapp_preferences"
         const val PREF_POSICION_SISTEMA = "pref_posicion_sistema"
 
         const val EXTRA_SISTEMA_UNIDADES = "extra_sistema_unidades"
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Cargar selección anterior
-        val prefs = getSharedPreferences(PREF_SISTEMA_UNIDADES, MODE_PRIVATE)
+        val prefs = getSharedPreferences(PREFERENCES_CONTAINER, MODE_PRIVATE)
         val posicionGuardada = prefs.getInt(PREF_POSICION_SISTEMA, 0)
         spinnerSistema.setSelection(posicionGuardada)
 
