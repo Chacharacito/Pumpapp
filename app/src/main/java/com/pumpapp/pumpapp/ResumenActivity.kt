@@ -1,6 +1,5 @@
 package com.pumpapp.pumpapp
 
-import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 
 class ResumenActivity : AppCompatActivity() {
 
@@ -21,14 +21,9 @@ class ResumenActivity : AppCompatActivity() {
             insets
         }
 
-        findViewById<Button>(R.id.btn_inicio).apply {
-            setOnClickListener {
-                val intent = Intent(this@ResumenActivity, MainActivity::class.java)
-                startActivity(intent)
-
-                val sonidoPasar = MediaPlayer.create(this@ResumenActivity, R.raw.kara)
-                sonidoPasar.start()
-            }
+        findViewById<Button>(R.id.btn_inicio).setOnClickListener {
+            lanzarActividadPrincipal(this@ResumenActivity)
+            MediaPlayer.create(this, R.raw.kara).start()
         }
     }
 }

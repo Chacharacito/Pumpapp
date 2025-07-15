@@ -1,6 +1,6 @@
 package com.pumpapp.pumpapp.riegos
 
-import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -9,7 +9,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity
+import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
+import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
+import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecificaciones
 import com.pumpapp.pumpapp.R
 
 class RiegoPorInundacionActivity : AppCompatActivity() {
@@ -40,8 +43,11 @@ class RiegoPorInundacionActivity : AppCompatActivity() {
             texturas
         )
 
+        val sistemaSeleccion = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
+
         findViewById<Button>(R.id.btn_atras2).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            lanzarActividadEspecificaciones(this@RiegoPorInundacionActivity, RIEGO_INUNDACION, sistemaSeleccion)
+            MediaPlayer.create(this, R.raw.kara).start()
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.pumpapp.pumpapp
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -29,6 +30,19 @@ class MainActivity : AppCompatActivity() {
 
         const val SISTEMA_INTERNACIONAL = "Internacional"
         const val SISTEMA_IMPERIAL = "Imperial"
+
+        fun lanzarActividadEspecificaciones(context: Context, tipoRiego: Int, sistemaUnidades: String) {
+            val intent = Intent(context, EspecificacionesHidraulicasActivity::class.java).apply {
+                putExtra(EXTRA_SISTEMA_UNIDADES, sistemaUnidades)
+                putExtra(EXTRA_SISTEMA_RIEGO, tipoRiego)
+            }
+            context.startActivity(intent)
+        }
+
+        fun lanzarActividadPrincipal(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_goteo).apply {
             setImageResource(R.drawable.riego_por_goteo)
             setOnClickListener {
-                lanzarActividadEspecificaciones(RIEGO_GOTEO, sistemaSeleccionado)
+                lanzarActividadEspecificaciones(this@MainActivity, RIEGO_GOTEO, sistemaSeleccionado)
                 sonidoPasar.start()
             }
         }
@@ -82,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_aspersion).apply {
             setImageResource(R.drawable.riego_por_aspersion)
             setOnClickListener {
-                lanzarActividadEspecificaciones(RIEGO_ASPERSION, sistemaSeleccionado)
+                lanzarActividadEspecificaciones(this@MainActivity, RIEGO_ASPERSION, sistemaSeleccionado)
                 sonidoPasar.start()
             }
         }
@@ -90,17 +104,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_inundacion).apply {
             setImageResource(R.drawable.riego_por_inundacion)
             setOnClickListener {
-                lanzarActividadEspecificaciones(RIEGO_INUNDACION, sistemaSeleccionado)
+                lanzarActividadEspecificaciones(this@MainActivity, RIEGO_INUNDACION, sistemaSeleccionado)
                 sonidoPasar.start()
             }
         }
-    }
-
-    private fun lanzarActividadEspecificaciones(tipoRiego: Int, sistemaUnidades: String) {
-        val intent = Intent(this, EspecificacionesHidraulicasActivity::class.java).apply {
-            putExtra(EXTRA_SISTEMA_UNIDADES, sistemaUnidades)
-            putExtra(EXTRA_SISTEMA_RIEGO, tipoRiego)
-        }
-        startActivity(intent)
     }
 }

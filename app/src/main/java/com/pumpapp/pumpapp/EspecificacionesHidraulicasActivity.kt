@@ -4,19 +4,25 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
 import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
+import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
+import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
-import kotlin.math.pow
 import kotlin.math.PI
+import kotlin.math.pow
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
@@ -78,7 +84,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         }
 
         val sistemaSeleccion = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
-        val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
 
         if (sistemaSeleccion == SISTEMA_INTERNACIONAL) {
             editTextAltura.hint = "m"
@@ -108,6 +113,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 val areaTuberia = (PI * diametro.pow(2)) / 4
                 val velocidadFluido = caudal / areaTuberia
 
+                val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
                 val intent = when (sistemaRiego) {
                     RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
                     else -> Intent(this, MainActivity::class.java)
@@ -126,7 +132,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btn_atras).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            lanzarActividadPrincipal(this@EspecificacionesHidraulicasActivity)
             sonidoPasar.start()
         }
     }
