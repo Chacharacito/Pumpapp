@@ -54,7 +54,6 @@ class CalculosGenerales {
             } else {
                 Toast.makeText(context, "Flujo transitorio: resultado incierto", Toast.LENGTH_SHORT).show()
                 return -1.0  // Valor especial para indicar “no definido”
-
             }
         }
         fun calcularAccesorios(

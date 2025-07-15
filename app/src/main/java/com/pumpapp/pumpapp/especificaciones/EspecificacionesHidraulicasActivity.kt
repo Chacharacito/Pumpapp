@@ -40,6 +40,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val PREF_DIAMETRO = "pref_diametro"
         private const val PREF_PRESION = "pref_presion"
         private const val PREF_MATERIAL_POS = "pref_material_pos"
+
         //TODO: añadir accesorios
 
         const val EXTRA_AREA_TUBERIA = "area_tuberia"
@@ -162,6 +163,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 putString(PREF_DIAMETRO, diametroTxt)
                 putString(PREF_PRESION, presionTxt)
                 putInt(PREF_MATERIAL_POS, spinnerMaterial.selectedItemPosition)
+
                 //TODO: añadir accesorios
                 apply()
             }
