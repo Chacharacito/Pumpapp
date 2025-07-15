@@ -15,7 +15,6 @@ import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.C
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.VUL_RETORNO
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.EXTRA_FACTOR_FRICCION
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.EXTRA_NUMERO_REYNOLDS
-import kotlin.contracts.contract
 
 class CalculosGenerales {
 
@@ -41,6 +40,7 @@ class CalculosGenerales {
                 SistemaUnidades.IMPERIAL -> (velocidad * diametro * DENSIDAD_IMPERIAL) / VISCOSIDAD_IMPERIAL
             }
         }
+
         fun calcularFactorFriccion(
             context: Context,
             diametro: Double,
@@ -54,34 +54,54 @@ class CalculosGenerales {
             } else {
                 Toast.makeText(context, "Flujo transitorio: resultado incierto", Toast.LENGTH_SHORT).show()
                 return -1.0  // Valor especial para indicar “no definido”
-
             }
         }
+
         fun calcularAccesorios(
             acesorios: Double,
             cantidad: Double
         ): Double {
             return when (acesorios) {
-                VAL_DE_BOLA.toDouble() -> { 150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+                VAL_DE_BOLA.toDouble() -> {
+                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                VAL_DE_ANGULO.toDouble() -> { 150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                VAL_DE_ANGULO.toDouble() -> {
+                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                VAL_DE_GOBO.toDouble() -> { 340 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                VAL_DE_GOBO.toDouble() -> {
+                    340 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                COD_NOVENTA.toDouble() -> { 30 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                COD_NOVENTA.toDouble() -> {
+                    30 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                COD_CUARENTACINCO.toDouble() -> { 16 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                COD_CUARENTACINCO.toDouble() -> {
+                    16 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                VUL_RETORNO.toDouble() -> { 50 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                VUL_RETORNO.toDouble() -> {
+                    50 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                TE_FLU_NORMAL.toDouble() -> { 20 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                TE_FLU_NORMAL.toDouble() -> {
+                    20 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                TE_FLU_INVERTIDO.toDouble() -> { 60 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                TE_FLU_INVERTIDO.toDouble() -> {
+                    60 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                CAB_LLAVE_DE_PASO.toDouble() -> { 150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                CAB_LLAVE_DE_PASO.toDouble() -> {
+                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
-                CAB_VAL_PRESION.toDouble() -> { 150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
+
+                CAB_VAL_PRESION.toDouble() -> {
+                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
                 }
+
                 else -> {
                     -1.0
                 }

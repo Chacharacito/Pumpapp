@@ -9,7 +9,7 @@ import com.pumpapp.pumpapp.R
 
 class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val VAL_DE_BOLA = "valbulaDeBola"
         const val VAL_DE_ANGULO = "valbulaDeAngulo"
         const val VAL_DE_GOBO = "valbulaDeGlobo"

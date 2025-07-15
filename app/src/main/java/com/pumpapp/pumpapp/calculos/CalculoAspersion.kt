@@ -14,24 +14,14 @@ import com.pumpapp.pumpapp.riegos.RiegoAspersionDAActivity.Companion.PROF_PIÑA
 import com.pumpapp.pumpapp.riegos.RiegoAspersionDAActivity.Companion.PUNTO_MARCHITEZ_PERMA
 
 class CalculoAspersion {
-
     companion object {
-
-
-
-        fun LaminasDeAgua(cultivo: String
-        ): Double{
-            when (cultivo) {
+        fun LaminasDeAgua(cultivo: String): Double {
+            return when (cultivo) {
                 ALGODON -> (CAPACIDAD_DE_CAMPO - PUNTO_MARCHITEZ_PERMA) * DENSIDAD_APARENTE * PROF_ALGODON * FACTOR_AGOTAMIENTO
                 CAÑA -> ((CAPACIDAD_DE_CAMPO - PUNTO_MARCHITEZ_PERMA) * DENSIDAD_APARENTE * PROF_CAÑA * FACTOR_AGOTAMIENTO)
                 PIÑA -> (CAPACIDAD_DE_CAMPO - PUNTO_MARCHITEZ_PERMA) * DENSIDAD_APARENTE * PROF_PIÑA * FACTOR_AGOTAMIENTO
                 ARROZ -> (CAPACIDAD_DE_CAMPO - PUNTO_MARCHITEZ_PERMA) * DENSIDAD_APARENTE * PROF_ARROZ * FACTOR_AGOTAMIENTO
-            }
-            when (cultivo) {
-                ALGODON ->
-                CAÑA ->
-                PIÑA ->
-                ARROZ
+                else -> 0.0
             }
         }
     }
