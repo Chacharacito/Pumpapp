@@ -16,7 +16,7 @@
             android:name=".ResumenActivity"
             android:exported="false" />
         <activity
-            android:name=".sistemas.RiegoPorInundacionActivity"
+            android:name=".riegos.RiegoPorInundacionActivity"
             android:exported="false" />
         <activity
             android:name=".EspecificacionesHidraulicasActivity"
