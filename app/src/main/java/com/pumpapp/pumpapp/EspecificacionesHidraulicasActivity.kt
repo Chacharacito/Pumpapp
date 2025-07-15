@@ -24,6 +24,7 @@ import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
 import kotlin.math.PI
 import kotlin.math.pow
 import androidx.core.content.edit
+import com.pumpapp.pumpapp.calculos.CalculosGenerales
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
@@ -36,9 +37,10 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val PREF_MATERIAL_POS = "pref_material_pos"
         //TODO: añadir accesorios
 
-        const val EXTRA_AREA_TUBERIA = "areaTuberia"
-        const val EXTRA_VELOCIDAD_FLUIDO = "velocidadFluido"
+        const val EXTRA_AREA_TUBERIA = "area_tuberia"
+        const val EXTRA_VELOCIDAD_FLUIDO = "velocidad_fluido"
         const val EXTRA_RUGOSIDAD = "rugosidad"
+        const val EXTRA_NUMERO_REYNOLDS = "nro_reynolds"
 
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_PLASTICO = "Plástico"
@@ -161,6 +163,14 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
             intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
             intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
+            intent.putExtra(
+                EXTRA_NUMERO_REYNOLDS,
+                CalculosGenerales.calcularNumeroReynolds(
+                    velocidadFluido,
+                    diametro,
+                    if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
+                )
+            )
 
             startActivity(intent)
 
