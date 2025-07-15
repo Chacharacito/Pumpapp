@@ -3,18 +3,7 @@ package com.pumpapp.pumpapp.calculos
 import android.content.Context
 import android.widget.Toast
 import com.pumpapp.pumpapp.SistemaUnidades
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.CAB_LLAVE_DE_PASO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.CAB_VAL_PRESION
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.COD_CUARENTACINCO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.COD_NOVENTA
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.TE_FLU_INVERTIDO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.TE_FLU_NORMAL
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.VAL_DE_ANGULO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.VAL_DE_BOLA
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.VAL_DE_GOBO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity.Companion.VUL_RETORNO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.EXTRA_FACTOR_FRICCION
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.EXTRA_NUMERO_REYNOLDS
+import com.pumpapp.pumpapp.TipoAccesorio
 
 class CalculosGenerales {
 
@@ -44,68 +33,47 @@ class CalculosGenerales {
         fun calcularFactorFriccion(
             context: Context,
             diametro: Double,
-            rugosidad: Double
+            rugosidad: Double,
+            numeroReynolds: Double
         ): Double {
-            val numeroDeReynolds = EXTRA_NUMERO_REYNOLDS.toDouble()
+            val numeroDeReynolds = numeroReynolds.toDouble()
             return if (numeroDeReynolds <= LIMITE_FLUJO_LAMINAR) {
                 64.0 / numeroDeReynolds
             } else if (numeroDeReynolds >= LIMITE_FLUJO_TURBULENTO){
-                0.3009/(Math.pow(Math.log10((Math.pow(rugosidad/(3.7315*diametro), 1.0954))+(Math.pow(5.9802/numeroDeReynolds, 0.9695))), 2.0));
+                0.3009 / (Math.pow(Math.log10((Math.pow(rugosidad / (3.7315 * diametro), 1.0954)) + (Math.pow(5.9802 / numeroDeReynolds, 0.9695))), 2.0));
             } else {
                 Toast.makeText(context, "Flujo transitorio: resultado incierto", Toast.LENGTH_SHORT).show()
                 return -1.0  // Valor especial para indicar “no definido”
             }
         }
 
-        fun calcularAccesorios(
-            acesorios: Double,
-            cantidad: Double
+        fun calcularPerdidaDeAccesorios(
+            accesorios: Map<TipoAccesorio, Int>,
+            factorFriccion: Double
         ): Double {
-            return when (acesorios) {
-                VAL_DE_BOLA.toDouble() -> {
-                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                VAL_DE_ANGULO.toDouble() -> {
-                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                VAL_DE_GOBO.toDouble() -> {
-                    340 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                COD_NOVENTA.toDouble() -> {
-                    30 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                COD_CUARENTACINCO.toDouble() -> {
-                    16 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                VUL_RETORNO.toDouble() -> {
-                    50 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                TE_FLU_NORMAL.toDouble() -> {
-                    20 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                TE_FLU_INVERTIDO.toDouble() -> {
-                    60 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                CAB_LLAVE_DE_PASO.toDouble() -> {
-                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                CAB_VAL_PRESION.toDouble() -> {
-                    150 * EXTRA_FACTOR_FRICCION.toDouble() * cantidad
-                }
-
-                else -> {
-                    -1.0
-                }
+            return accesorios.entries.sumOf { (accesorio, cantidad) ->
+                calcularPerdidaDeAccesorio(accesorio, cantidad, factorFriccion)
             }
+        }
+
+        fun calcularPerdidaDeAccesorio(
+            accesorio: TipoAccesorio,
+            cantidad: Int,
+            factorFriccion: Double
+        ): Double {
+            val factor = when (accesorio) {
+                TipoAccesorio.VALVULA_DE_BOLA -> 150
+                TipoAccesorio.VALVULA_DE_ANGULO -> 150
+                TipoAccesorio.VALVULA_DE_GLOBO -> 340
+                TipoAccesorio.CODO_NOVENTA -> 30
+                TipoAccesorio.CODO_CUARENTA_Y_CINCO -> 16
+                TipoAccesorio.VUELTA_RETORNO -> 50
+                TipoAccesorio.TE_FLUJO_NORMAL -> 20
+                TipoAccesorio.TE_FLUJO_INVERTIDO -> 60
+                TipoAccesorio.CABEZAL_LLAVE_DE_PASO -> 150
+                TipoAccesorio.CABEZAL_VALVULA_PRESION -> 150
+            }
+            return factor * factorFriccion * cantidad
         }
     }
 }

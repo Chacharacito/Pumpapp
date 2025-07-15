@@ -40,7 +40,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val PREF_DIAMETRO = "pref_diametro"
         private const val PREF_PRESION = "pref_presion"
         private const val PREF_MATERIAL_POS = "pref_material_pos"
-        //TODO: añadir accesorios
 
         const val EXTRA_AREA_TUBERIA = "area_tuberia"
         const val EXTRA_VELOCIDAD_FLUIDO = "velocidad_fluido"
@@ -134,7 +133,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         editTextDiametro.setText(prefs.getString(PREF_DIAMETRO, ""))
         editTextPresion.setText(prefs.getString(PREF_PRESION, ""))
         spinnerMaterial.setSelection(prefs.getInt(PREF_MATERIAL_POS, 0))
-        //TODO: añadir accesorios
 
         val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
 
@@ -168,7 +166,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 putString(PREF_DIAMETRO, diametroTxt)
                 putString(PREF_PRESION, presionTxt)
                 putInt(PREF_MATERIAL_POS, spinnerMaterial.selectedItemPosition)
-                //TODO: añadir accesorios
                 apply()
             }
 
@@ -176,28 +173,30 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
             intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
             intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
-            intent.putExtra(
-                EXTRA_NUMERO_REYNOLDS,
-                CalculosGenerales.calcularNumeroReynolds(
-                    velocidadFluido,
-                    diametro,
-                    if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
-                )
+
+            val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(
+                velocidadFluido,
+                diametro,
+                if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
             )
 
-            if (EXTRA_NUMERO_REYNOLDS.toDouble() >= 0) {
-                intent.putExtra(
-                    EXTRA_FACTOR_FRICCION,
-                    CalculosGenerales.calcularFactorFriccion(
-                        context = this,
-                        diametro,
-                        rugosidad,
-                    )
-                )
-            } else {
+            if (numeroReynolds.toDouble() < 0) {
                 Toast.makeText(this, "Número de Reynolds erronoeo", Toast.LENGTH_SHORT).show()
+
                 return@setOnClickListener
             }
+
+            intent.putExtra(EXTRA_NUMERO_REYNOLDS, numeroReynolds)
+
+            intent.putExtra(
+                EXTRA_FACTOR_FRICCION,
+                CalculosGenerales.calcularFactorFriccion(
+                    this,
+                    diametro,
+                    rugosidad,
+                    numeroReynolds
+                )
+            )
 
             startActivity(intent)
 
