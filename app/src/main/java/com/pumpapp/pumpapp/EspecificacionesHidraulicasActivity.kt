@@ -105,30 +105,32 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             val diametroTxt = editTextDiametro.text.toString()
             val presionTxt = editTextPresion.text.toString()
 
-            if (alturaTxt.isNotEmpty() && caudalTxt.isNotEmpty() &&
-                diametroTxt.isNotEmpty() && presionTxt.isNotEmpty()
-            ) {
-                val diametro = diametroTxt.toDouble()
-                val caudal = caudalTxt.toDouble()
-                val areaTuberia = (PI * diametro.pow(2)) / 4
-                val velocidadFluido = caudal / areaTuberia
-
-                val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
-                val intent = when (sistemaRiego) {
-                    RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
-                    else -> Intent(this, MainActivity::class.java)
-                }
-
-                intent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
-                intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
-                intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
-                intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
-
-                startActivity(intent)
-                sonidoPasar.start()
-            } else {
+            if (alturaTxt.isEmpty() || caudalTxt.isEmpty() || diametroTxt.isEmpty() || presionTxt.isEmpty()) {
                 Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
+
+                return@setOnClickListener
             }
+
+            val diametro = diametroTxt.toDouble()
+            val caudal = caudalTxt.toDouble()
+            val areaTuberia = (PI * diametro.pow(2)) / 4
+            val velocidadFluido = caudal / areaTuberia
+
+            val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
+            val intent = when (sistemaRiego) {
+                RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
+                //TODO: añadir las demas actividades cuando juanpa las cree
+                else -> Intent(this, MainActivity::class.java)
+            }
+
+            intent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
+            intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
+            intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
+            intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
+
+            startActivity(intent)
+
+            sonidoPasar.start()
         }
 
         findViewById<Button>(R.id.btn_atras).setOnClickListener {
