@@ -52,6 +52,9 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val RUGOSIDAD_HIERRO = 1.5e-4
         private const val RUGOSIDAD_PVC = 2.3e-6
 
+        private const val LIMITE_FLUJO_LAMINAR = 2000
+        private const val LIMITE_FLUJO_TURBULENTO = 4000
+
         fun limpiarPreferencias(context: android.content.Context) {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
                 clear()
@@ -171,6 +174,16 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                     if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
                 )
             )
+
+            if (EXTRA_NUMERO_REYNOLDS >= 0.toString()) {
+                if (EXTRA_NUMERO_REYNOLDS <= LIMITE_FLUJO_LAMINAR.toString()) {
+
+                }
+            }else{
+                Toast.makeText(this, "Número de Reynolds erroneo, revisar calculos", Toast.LENGTH_SHORT).show()
+
+                return@setOnClickListener
+            }
 
             startActivity(intent)
 

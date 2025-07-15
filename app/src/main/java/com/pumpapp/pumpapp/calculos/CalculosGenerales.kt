@@ -1,5 +1,6 @@
 package com.pumpapp.pumpapp.calculos
 
+import com.pumpapp.pumpapp.EspecificacionesHidraulicasActivity.Companion.EXTRA_NUMERO_REYNOLDS
 import com.pumpapp.pumpapp.SistemaUnidades
 
 class CalculosGenerales {
@@ -23,5 +24,6 @@ class CalculosGenerales {
                 SistemaUnidades.IMPERIAL -> (velocidad * diametro * DENSIDAD_IMPERIAL) / VISCOSIDAD_IMPERIAL
             }
         }
+
     }
 }
