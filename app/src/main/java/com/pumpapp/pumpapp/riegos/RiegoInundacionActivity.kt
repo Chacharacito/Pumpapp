@@ -15,7 +15,7 @@ import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecificaciones
 import com.pumpapp.pumpapp.R
 
-class RiegoPorInundacionActivity : AppCompatActivity() {
+class RiegoInundacionActivity : AppCompatActivity() {
 
     companion object {
         private const val TEXTURA_ARENA = "Arena"
@@ -26,7 +26,7 @@ class RiegoPorInundacionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_riego_por_inundacion)
+        setContentView(R.layout.activity_riego_inundacion)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -46,7 +46,7 @@ class RiegoPorInundacionActivity : AppCompatActivity() {
         val sistemaSeleccion = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
 
         findViewById<Button>(R.id.btn_atras2).setOnClickListener {
-            lanzarActividadEspecificaciones(this@RiegoPorInundacionActivity, RIEGO_INUNDACION, sistemaSeleccion)
+            lanzarActividadEspecificaciones(this@RiegoInundacionActivity, RIEGO_INUNDACION, sistemaSeleccion)
             MediaPlayer.create(this, R.raw.kara).start()
         }
     }

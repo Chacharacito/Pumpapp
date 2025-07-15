@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".especificaciones.EspecificacionesAccesoriosActivity">
+
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="402dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="124dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_siguiente3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Siguiente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_atras3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="@color/dark_red"
+        android:text="Atras"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="176dp"
+        android:text="Valvula"
+        android:textColor="@color/dark_blue"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="176dp"
+        android:text="Codos"
+        android:textColor="@color/dark_blue"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="440dp"
+        android:text="Cabezales"
+        android:textColor="@color/dark_blue"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/a2"
+        android:layout_width="59dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="556dp"
+        android:foregroundGravity="center"
+        android:gravity="center_horizontal"
+        android:text="Valvula de presión"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="58dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="496dp"
+        android:text="De ángulo"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="71dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="496dp"
+        android:text="Llave de paso"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="58dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="556dp"
+        android:text="De ángulo"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="440dp"
+        android:text="Tee"
+        android:textColor="@color/dark_blue"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch2"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="560dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch3"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="496dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch4"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="564dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch5"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="496dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:text="Especificaciones de accesorios"
+        android:textAlignment="center"
+        android:textColor="@color/dark_blue"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="232dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="240dp"
+        android:text="De bola"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="240dp"
+        android:text="De 90°"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="58dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="348dp"
+        android:text="De globo"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="58dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="340dp"
+        android:foregroundGravity="center"
+        android:gravity="center_horizontal"
+        android:text="Valvula de retorno"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="53dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="288dp"
+        android:text="De ángulo"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="288dp"
+        android:text="De 45°"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch6"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="352dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch7"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="280dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch8"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="232dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch9"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="352dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+    <nl.dionsegijn.steppertouch.StepperTouch
+        android:id="@+id/stepperTouch1"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="292dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

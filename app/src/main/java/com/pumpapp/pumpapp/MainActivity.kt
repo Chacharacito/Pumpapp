@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity
 
 class MainActivity : AppCompatActivity() {
 

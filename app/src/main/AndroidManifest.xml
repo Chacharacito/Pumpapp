@@ -16,10 +16,25 @@
             android:name=".ResumenActivity"
             android:exported="false" />
         <activity
-            android:name=".riegos.RiegoPorInundacionActivity"
+            android:name=".riegos.RiegoInundacionActivity"
             android:exported="false" />
         <activity
-            android:name=".EspecificacionesHidraulicasActivity"
+            android:name=".riegos.RiegoGoteoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".riegos.RiegoAspersionDHActivity"
+            android:exported="false" />
+        <activity
+            android:name=".riegos.RiegoAspersionAspersorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".riegos.RiegoAspersionDAActivity"
+            android:exported="false" />
+        <activity
+            android:name=".especificaciones.EspecificacionesAccesoriosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".especificaciones.EspecificacionesHidraulicasActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
