@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         const val EXTRA_SISTEMA_RIEGO = "extra_sistema_riego"
 
         const val RIEGO_GOTEO = 1
-        const val RIEGO_ASPERSION = 2
+        //const val RIEGO_ASPERSION = 2
         const val RIEGO_INUNDACION = 3
 
         const val SISTEMA_INTERNACIONAL = "Internacional"
@@ -97,13 +97,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<ImageButton>(R.id.ib_aspersion).apply {
+        /**findViewById<ImageButton>(R.id.ib_aspersion).apply {
             setImageResource(R.drawable.riego_por_aspersion)
             setOnClickListener {
                 lanzarActividadEspecificaciones(this@MainActivity, RIEGO_ASPERSION, sistemaSeleccionado)
                 sonidoPasar.start()
             }
-        }
+        }**/
 
         findViewById<ImageButton>(R.id.ib_inundacion).apply {
             setImageResource(R.drawable.riego_por_inundacion)
