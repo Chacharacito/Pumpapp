@@ -8,6 +8,20 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.R
 
 class EspecificacionesAccesoriosActivity : AppCompatActivity() {
+
+    companion object{
+        const val VAL_DE_BOLA = "valbulaDeBola"
+        const val VAL_DE_ANGULO = "valbulaDeAngulo"
+        const val VAL_DE_GOBO = "valbulaDeGlobo"
+        const val COD_NOVENTA = "codosDeNoventa"
+        const val COD_CUARENTACINCO = "codosDeCuarentaYCinco"
+        const val VUL_RETORNO = "vueltaRetorno"
+        const val TE_FLU_NORMAL = "teDeFlujoNormal"
+        const val TE_FLU_INVERTIDO = "teDeFlujoInvertido"
+        const val CAB_LLAVE_DE_PASO = "cabezalLllaveDePaso"
+        const val CAB_VAL_PRESION = "cabezalValbulaDePresion"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

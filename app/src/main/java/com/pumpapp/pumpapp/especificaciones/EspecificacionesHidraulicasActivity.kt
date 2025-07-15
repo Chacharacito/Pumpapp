@@ -1,5 +1,6 @@
-package com.pumpapp.pumpapp
+package com.pumpapp.pumpapp.especificaciones
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -20,11 +21,15 @@ import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
-import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
+import com.pumpapp.pumpapp.riegos.RiegoInundacionActivity
 import kotlin.math.PI
 import kotlin.math.pow
 import androidx.core.content.edit
+import com.pumpapp.pumpapp.MainActivity
+import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.SistemaUnidades
 import com.pumpapp.pumpapp.calculos.CalculosGenerales
+import kotlin.math.cos
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
@@ -41,6 +46,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         const val EXTRA_VELOCIDAD_FLUIDO = "velocidad_fluido"
         const val EXTRA_RUGOSIDAD = "rugosidad"
         const val EXTRA_NUMERO_REYNOLDS = "nro_reynolds"
+        const val EXTRA_FACTOR_FRICCION = "factorFriccion"
 
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_PLASTICO = "Plástico"
@@ -52,10 +58,8 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val RUGOSIDAD_HIERRO = 1.5e-4
         private const val RUGOSIDAD_PVC = 2.3e-6
 
-        private const val LIMITE_FLUJO_LAMINAR = 2000
-        private const val LIMITE_FLUJO_TURBULENTO = 4000
 
-        fun limpiarPreferencias(context: android.content.Context) {
+        fun limpiarPreferencias(context: Context) {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
                 clear()
             }
@@ -147,7 +151,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
             val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
             val intent = when (sistemaRiego) {
-                RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
+                RIEGO_INUNDACION -> Intent(this, RiegoInundacionActivity::class.java)
                 //TODO: añadir las demas actividades cuando juanpa las cree
                 else -> Intent(this, MainActivity::class.java)
             }
@@ -175,13 +179,16 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 )
             )
 
-            if (EXTRA_NUMERO_REYNOLDS >= 0.toString()) {
-                if (EXTRA_NUMERO_REYNOLDS <= LIMITE_FLUJO_LAMINAR.toString()) {
-
-                }
+            if (EXTRA_NUMERO_REYNOLDS.toDouble() >= 0) {
+                intent.putExtra(EXTRA_FACTOR_FRICCION,
+                    CalculosGenerales.calcularFactorFriccion(
+                        context = this,
+                        diametro,
+                        rugosidad,
+                    )
+                )
             }else{
-                Toast.makeText(this, "Número de Reynolds erroneo, revisar calculos", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this, "Número de Reynolds erronoeo", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

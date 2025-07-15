@@ -11,6 +11,10 @@ import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 
 class ResumenActivity : AppCompatActivity() {
 
+    companion object {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

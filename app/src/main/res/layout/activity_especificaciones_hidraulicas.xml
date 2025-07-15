@@ -107,7 +107,7 @@
         android:layout_marginTop="208dp"
         android:ems="10"
         android:hint="m³/s, ft³/s"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,7 +145,7 @@
         android:layout_marginTop="152dp"
         android:ems="10"
         android:hint="m, ft"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,7 +183,7 @@
         android:layout_marginTop="388dp"
         android:ems="10"
         android:hint="psi, kPa"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -195,7 +195,7 @@
         android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="m, ft"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
