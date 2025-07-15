@@ -14,7 +14,7 @@ import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
-import com.pumpapp.pumpapp.sistemas.RiegoPorInundacionActivity
+import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
 import kotlin.math.pow
 import kotlin.math.PI
 

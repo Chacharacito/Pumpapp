@@ -16,10 +16,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    enum class Sistema { //Se usa para los calculos
-        SI, IMPERIAL
-    }
-
     companion object {
         const val PREFERENCES_CONTAINER = "pumpapp_preferences"
         const val PREF_POSICION_SISTEMA = "pref_posicion_sistema"

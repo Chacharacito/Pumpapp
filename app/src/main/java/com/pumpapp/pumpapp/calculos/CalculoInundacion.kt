@@ -1,8 +1,9 @@
 package com.pumpapp.pumpapp.calculos
 
-import com.pumpapp.pumpapp.MainActivity.Sistema
+import com.pumpapp.pumpapp.SistemaUnidades
 
 class CalculoInundacion {
+
     companion object {
         // Sistema Internacional
         private const val VISCOSIDAD_SI = 0.000861 // Pa·s
@@ -15,11 +16,11 @@ class CalculoInundacion {
         fun calcularNumeroReynolds(
             velocidad: Double,
             diametro: Double,
-            sistema: Sistema = Sistema.SI
+            sistemaDeUnidades: SistemaUnidades = SistemaUnidades.INTERNACIONAL
         ): Double {
-            return when (sistema) {
-                Sistema.SI -> (velocidad * diametro * DENSIDAD_SI) / VISCOSIDAD_SI
-                Sistema.IMPERIAL -> (velocidad * diametro * DENSIDAD_IMPERIAL) / VISCOSIDAD_IMPERIAL
+            return when (sistemaDeUnidades) {
+                SistemaUnidades.INTERNACIONAL -> (velocidad * diametro * DENSIDAD_SI) / VISCOSIDAD_SI
+                SistemaUnidades.IMPERIAL -> (velocidad * diametro * DENSIDAD_IMPERIAL) / VISCOSIDAD_IMPERIAL
             }
         }
     }
