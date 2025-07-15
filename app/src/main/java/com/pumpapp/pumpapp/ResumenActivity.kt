@@ -4,14 +4,13 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.calculos.CalculoPorGoteo
 
 class ResumenActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,14 +21,14 @@ class ResumenActivity : AppCompatActivity() {
             insets
         }
 
-        val text = findViewById<TextView>(R.id.textView36)
-        text.text = CalculoPorGoteo.sumar(5, 10).toString()
+        findViewById<Button>(R.id.btn_inicio).apply {
+            setOnClickListener {
+                val intent = Intent(this@ResumenActivity, MainActivity::class.java)
+                startActivity(intent)
 
-        val btnInicio = findViewById<Button>(R.id.btn_inicio)
-        btnInicio.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
-            sonidoPasar.start()
+                val sonidoPasar = MediaPlayer.create(this@ResumenActivity, R.raw.kara)
+                sonidoPasar.start()
+            }
         }
     }
 }

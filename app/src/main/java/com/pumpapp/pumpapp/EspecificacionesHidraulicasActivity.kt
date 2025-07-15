@@ -4,122 +4,129 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pumpapp.pumpapp.MainActivity.Companion.DATO_SISTEMA_DE_UNIDADES
-import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_RIEGO_GOTEO
-import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_RIEGO_INUNDACION
+import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
+import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_RIEGO
+import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
+import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
+import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.sistemas.RiegoPorInundacionActivity
 import kotlin.math.pow
+import kotlin.math.PI
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
+
+    companion object {
+        const val EXTRA_AREA_TUBERIA = "areaTuberia"
+        const val EXTRA_VELOCIDAD_FLUIDO = "velocidadFluido"
+        const val EXTRA_RUGOSIDAD = "rugosidad"
+
+        private const val MATERIAL_ACERO = "Acero"
+        private const val MATERIAL_PLASTICO = "Plástico"
+        private const val MATERIAL_HIERRO = "Hierro"
+        private const val MATERIAL_PVC = "PVC"
+
+        private const val RUGOSIDAD_ACERO = 4.6e-5
+        private const val RUGOSIDAD_PLASTICO = 3e-7
+        private const val RUGOSIDAD_HIERRO = 1.5e-4
+        private const val RUGOSIDAD_PVC = 2.3e-6
+    }
+
+    private var rugosidad: Double = 0.0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_especificaciones_hidraulicas)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val sMaterialDeLaTuberia = findViewById<Spinner>(R.id.s_material_de_la_tuberia)
+        val spinnerMaterial = findViewById<Spinner>(R.id.s_material_de_la_tuberia)
+        val editTextAltura = findViewById<EditText>(R.id.et_altura)
+        val editTextCaudal = findViewById<EditText>(R.id.et_caudal)
+        val editTextDiametro = findViewById<EditText>(R.id.et_diametro)
+        val editTextPresion = findViewById<EditText>(R.id.et_presion)
 
-        val etAltura = findViewById<EditText>(R.id.et_altura)
-        val etCaudal = findViewById<EditText>(R.id.et_caudal)
-        val etDiametro = findViewById<EditText>(R.id.et_diametro)
-        val etPresion = findViewById<EditText>(R.id.et_presion)
-
-        /**
-         *
-         * no borrar esta parte me permite cambiar los hints de caudal altura y diametro de acuerdo a las unidades seleccionadas
-         * en la pantalla principal
-         */
-
-        val intentoActual: Intent = intent
-        val sistemaSeleccion = intentoActual.getStringExtra(DATO_SISTEMA_DE_UNIDADES)
-        //TODO: MEJORAR SISTEMA DE VALOR POR DEFECTO
-        val sistemaRiego = intentoActual.getIntExtra("sistemaRiego",0)
-
-        val materiales = arrayOf("PVC", "Acero", "Plástico", "Hierro")
-        sMaterialDeLaTuberia.adapter = ArrayAdapter<String>(
+        val materiales = arrayOf(MATERIAL_PVC, MATERIAL_ACERO, MATERIAL_PLASTICO, MATERIAL_HIERRO)
+        spinnerMaterial.adapter = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
             materiales
         )
 
-        //inicio de los calculos iniciales
-
-        var materialSeleccionado: String? = null
-
-        sMaterialDeLaTuberia.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                materialSeleccionado = materiales[position]
+        spinnerMaterial.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                rugosidad = when (materiales[position]) {
+                    MATERIAL_ACERO -> RUGOSIDAD_ACERO
+                    MATERIAL_PLASTICO -> RUGOSIDAD_PLASTICO
+                    MATERIAL_HIERRO -> RUGOSIDAD_HIERRO
+                    else -> RUGOSIDAD_PVC
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                rugosidad = RUGOSIDAD_PVC
             }
         }
 
-        var rugosidad: Double? = if (materialSeleccionado == "Acero") {
-            4.6 * (10.0.pow((-5).toDouble()))
-        } else if (materialSeleccionado == "Plastico") {
-            3 * (10.0.pow((-7).toDouble()))
-        } else if (materialSeleccionado == "Hierro") {
-            1.5 * (10.0.pow((-4).toDouble()))
+        val sistemaSeleccion = intent.getStringExtra(EXTRA_SISTEMA_UNIDADES) ?: SISTEMA_INTERNACIONAL
+        val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
+
+        if (sistemaSeleccion == SISTEMA_INTERNACIONAL) {
+            editTextAltura.hint = "m"
+            editTextCaudal.hint = "m³/s"
+            editTextDiametro.hint = "m"
+            editTextPresion.hint = "kPa"
         } else {
-            2.3 * (10.0.pow((-6).toDouble()))
+            editTextAltura.hint = "ft"
+            editTextCaudal.hint = "ft³/s"
+            editTextDiametro.hint = "ft"
+            editTextPresion.hint = "psi"
         }
 
-        if (sistemaSeleccion == "Internacional") {
-            etAltura.setHint("m")
-            etCaudal.setHint("m³/s")
-            etDiametro.setHint("m")
-            etPresion.setHint("kPa")
-        } else {
-            etAltura.setHint("ft")
-            etCaudal.setHint("ft³/s")
-            etDiametro.setHint("ft")
-            etPresion.setHint("psi")
-        }
+        val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
 
-        val btnSiguiente = findViewById<Button>(R.id.btn_siguiente)
-        btnSiguiente.setOnClickListener {
-            if (!(etDiametro.text.isEmpty() || etAltura.text.isEmpty() || etCaudal.text.isEmpty() || etPresion.text.isEmpty())) {
-                var areaTuberia: Double = (((etDiametro.text.toString().toDouble()).pow((2).toDouble()) * Math.PI) / 4)
-                var velocidadFluido: Double = ((etCaudal.text.toString().toDouble()) / areaTuberia)
+        findViewById<Button>(R.id.btn_siguiente).setOnClickListener {
+            val alturaTxt = editTextAltura.text.toString()
+            val caudalTxt = editTextCaudal.text.toString()
+            val diametroTxt = editTextDiametro.text.toString()
+            val presionTxt = editTextPresion.text.toString()
+
+            if (alturaTxt.isNotEmpty() && caudalTxt.isNotEmpty() &&
+                diametroTxt.isNotEmpty() && presionTxt.isNotEmpty()
+            ) {
+                val diametro = diametroTxt.toDouble()
+                val caudal = caudalTxt.toDouble()
+                val areaTuberia = (PI * diametro.pow(2)) / 4
+                val velocidadFluido = caudal / areaTuberia
+
                 val intent = when (sistemaRiego) {
-                    SISTEMA_RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
+                    RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
                     else -> Intent(this, MainActivity::class.java)
                 }
-                intent.putExtra("areaTuberia" , areaTuberia)
-                intent.putExtra("velocidadFluido" , velocidadFluido)
+
+                intent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
+                intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
+                intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
+                intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
+
                 startActivity(intent)
-                val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
                 sonidoPasar.start()
-            }else{
-                Toast.makeText(this, "No deben haber campos vacios", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
             }
         }
 
-        val btnAtras = findViewById<Button>(R.id.btn_atras)
-        btnAtras.setOnClickListener {
+        findViewById<Button>(R.id.btn_atras).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-            val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
             sonidoPasar.start()
         }
     }
