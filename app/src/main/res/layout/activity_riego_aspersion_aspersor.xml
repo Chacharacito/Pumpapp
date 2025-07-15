@@ -32,9 +32,11 @@
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="222dp"
+        android:layout_marginTop="356dp"
         android:hint="m3/h"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="356dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView33"
@@ -66,9 +68,11 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="222dp"
+        android:layout_marginTop="392dp"
         android:hint="mm"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="392dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_siguiente4"

@@ -50,11 +50,10 @@
         android:layout_marginTop="476dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView36"
@@ -91,11 +90,10 @@
         android:layout_marginTop="476dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView34"
@@ -194,11 +192,10 @@
         android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView30"
@@ -246,18 +243,17 @@
         android:layout_marginTop="476dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="544dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="540dp"
         android:text="Densidad aparente"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"

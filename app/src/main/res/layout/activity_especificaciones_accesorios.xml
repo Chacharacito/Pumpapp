@@ -13,7 +13,6 @@
         android:layout_height="15dp"
         android:layout_marginTop="124dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -155,11 +154,10 @@
         android:layout_marginTop="560dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch3"
@@ -169,11 +167,10 @@
         android:layout_marginTop="496dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch4"
@@ -183,11 +180,10 @@
         android:layout_marginTop="564dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch5"
@@ -197,11 +193,10 @@
         android:layout_marginTop="496dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView11"
@@ -225,11 +220,10 @@
         android:layout_marginTop="232dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <TextView
         android:id="@+id/textView17"
@@ -319,11 +313,10 @@
         android:layout_marginTop="352dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch7"
@@ -333,11 +326,10 @@
         android:layout_marginTop="280dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch8"
@@ -347,11 +339,10 @@
         android:layout_marginTop="232dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch9"
@@ -361,11 +352,10 @@
         android:layout_marginTop="352dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
         android:id="@+id/stepperTouch1"
@@ -375,10 +365,9 @@
         android:layout_marginTop="292dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:stepperActionsColor="@color/white"
-        app:stepperActionsDisabledColor="@color/white"
-        app:stepperBackgroundColor="@color/light_blue"
-        app:stepperButtonColor="@color/dark_blue"
-        app:stepperTextColor="@color/white" />
+        app:stepperActionsColor="@color/light_blue"
+        app:stepperBackgroundColor="@color/light_gray"
+        app:stepperButtonColor="@color/white"
+        app:stepperTextColor="@color/light_blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
