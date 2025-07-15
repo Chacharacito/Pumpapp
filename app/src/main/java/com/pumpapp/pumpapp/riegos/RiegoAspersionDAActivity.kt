@@ -17,15 +17,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.EXTRA_SISTEMA_UNIDADES
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.R
-import com.pumpapp.pumpapp.calculos.CalculoAspersion
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.MATERIAL_ACERO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.MATERIAL_HIERRO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.MATERIAL_PLASTICO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.MATERIAL_PVC
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.RUGOSIDAD_ACERO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.RUGOSIDAD_HIERRO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.RUGOSIDAD_PLASTICO
-import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.RUGOSIDAD_PVC
 
 class RiegoAspersionDAActivity : AppCompatActivity() {
 
@@ -116,10 +107,7 @@ class RiegoAspersionDAActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, RiegoAspersionAspersorActivity::class.java)
-            intent.putExtra(LARA,
-                CalculoAspersion.LaminasDeAgua(
-                    cultivo
-                ))
+
         }
     }
 }
