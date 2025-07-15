@@ -23,13 +23,24 @@ import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
 import kotlin.math.PI
 import kotlin.math.pow
+import androidx.core.content.edit
+import com.pumpapp.pumpapp.calculos.CalculosGenerales
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_AREA_TUBERIA = "areaTuberia"
-        const val EXTRA_VELOCIDAD_FLUIDO = "velocidadFluido"
+        private const val PREFS_NAME = "especificaciones_hidraulicas"
+        private const val PREF_ALTURA = "pref_altura"
+        private const val PREF_CAUDAL = "pref_caudal"
+        private const val PREF_DIAMETRO = "pref_diametro"
+        private const val PREF_PRESION = "pref_presion"
+        private const val PREF_MATERIAL_POS = "pref_material_pos"
+        //TODO: añadir accesorios
+
+        const val EXTRA_AREA_TUBERIA = "area_tuberia"
+        const val EXTRA_VELOCIDAD_FLUIDO = "velocidad_fluido"
         const val EXTRA_RUGOSIDAD = "rugosidad"
+        const val EXTRA_NUMERO_REYNOLDS = "nro_reynolds"
 
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_PLASTICO = "Plástico"
@@ -40,6 +51,12 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val RUGOSIDAD_PLASTICO = 3e-7
         private const val RUGOSIDAD_HIERRO = 1.5e-4
         private const val RUGOSIDAD_PVC = 2.3e-6
+
+        fun limpiarPreferencias(context: android.content.Context) {
+            context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
+                clear()
+            }
+        }
     }
 
     private var rugosidad: Double = 0.0
@@ -97,6 +114,15 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             editTextPresion.hint = "psi"
         }
 
+        val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+
+        editTextAltura.setText(prefs.getString(PREF_ALTURA, ""))
+        editTextCaudal.setText(prefs.getString(PREF_CAUDAL, ""))
+        editTextDiametro.setText(prefs.getString(PREF_DIAMETRO, ""))
+        editTextPresion.setText(prefs.getString(PREF_PRESION, ""))
+        spinnerMaterial.setSelection(prefs.getInt(PREF_MATERIAL_POS, 0))
+        //TODO: añadir accesorios
+
         val sonidoPasar = MediaPlayer.create(this, R.raw.kara)
 
         findViewById<Button>(R.id.btn_siguiente).setOnClickListener {
@@ -123,10 +149,28 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 else -> Intent(this, MainActivity::class.java)
             }
 
+            prefs.edit().apply {
+                putString(PREF_ALTURA, alturaTxt)
+                putString(PREF_CAUDAL, caudalTxt)
+                putString(PREF_DIAMETRO, diametroTxt)
+                putString(PREF_PRESION, presionTxt)
+                putInt(PREF_MATERIAL_POS, spinnerMaterial.selectedItemPosition)
+                //TODO: añadir accesorios
+                apply()
+            }
+
             intent.putExtra(EXTRA_AREA_TUBERIA, areaTuberia)
             intent.putExtra(EXTRA_VELOCIDAD_FLUIDO, velocidadFluido)
             intent.putExtra(EXTRA_RUGOSIDAD, rugosidad)
             intent.putExtra(EXTRA_SISTEMA_UNIDADES, sistemaSeleccion)
+            intent.putExtra(
+                EXTRA_NUMERO_REYNOLDS,
+                CalculosGenerales.calcularNumeroReynolds(
+                    velocidadFluido,
+                    diametro,
+                    if (sistemaSeleccion == SISTEMA_INTERNACIONAL) SistemaUnidades.INTERNACIONAL else SistemaUnidades.IMPERIAL
+                )
+            )
 
             startActivity(intent)
 

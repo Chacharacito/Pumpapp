@@ -18,8 +18,8 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        const val PREFERENCES_CONTAINER = "pumpapp_preferences"
-        const val PREF_POSICION_SISTEMA = "pref_posicion_sistema"
+        private const val PREFS_NAME = "main"
+        private const val PREF_POSICION_SISTEMA = "pref_posicion_sistema"
 
         const val EXTRA_SISTEMA_UNIDADES = "extra_sistema_unidades"
         const val EXTRA_SISTEMA_RIEGO = "extra_sistema_riego"
@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        //Limpiamos preferencias
+        EspecificacionesHidraulicasActivity.limpiarPreferencias(this@MainActivity)
+
         val spinnerSistema = findViewById<Spinner>(R.id.s_sistema_unidades)
 
         val opcionesSistema = arrayOf(SISTEMA_INTERNACIONAL, SISTEMA_IMPERIAL)
@@ -66,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Cargar selección anterior
-        val prefs = getSharedPreferences(PREFERENCES_CONTAINER, MODE_PRIVATE)
+        val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         val posicionGuardada = prefs.getInt(PREF_POSICION_SISTEMA, 0)
         spinnerSistema.setSelection(posicionGuardada)
 
