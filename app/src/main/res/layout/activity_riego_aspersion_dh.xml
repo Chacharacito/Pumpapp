@@ -7,16 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".riegos.RiegoAspersionDHActivity">
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="402dp"
+        android:layout_height="15dp"
         android:layout_marginTop="124dp"
-        android:text="Cantidad de aspersores"
-        android:textColor="#012851"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_siguiente6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="#012851"
+        android:text="Siguiente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_atras6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="#A20724"
+        android:text="Atras"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,8 +45,57 @@
         android:id="@+id/et_caudal2"
         android:layout_width="133dp"
         android:layout_height="42dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="632dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="480dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="240dp"
+        android:text="Cantidad de aspersores"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="101dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="480dp"
+        android:text="Totales de laterales"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/s_material_de_la_tuberia2"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="136dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="404dp"
+        android:dropDownWidth="wrap_content"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_caudal4"
+        android:layout_width="133dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="240dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,67 +105,20 @@
         android:id="@+id/et_caudal3"
         android:layout_width="133dp"
         android:layout_height="42dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="312dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="320dp"
         android:ems="10"
         android:hint="m, ft"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_caudal4"
-        android:layout_width="133dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="168dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/s_material_de_la_tuberia2"
-        style="@android:style/Widget.Spinner.DropDown"
-        android:layout_width="172dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="480dp"
-        android:dropDownWidth="wrap_content"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_siguiente4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="736dp"
-        android:backgroundTint="#012851"
-        android:text="Siguiente"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_atras4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="736dp"
-        android:backgroundTint="#A20724"
-        android:text="Atras"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="268dp"
+        android:layout_width="104dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="320dp"
         android:text="Longitud de laterales"
         android:textColor="#012851"
         android:textSize="16sp"
@@ -105,24 +128,11 @@
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="432dp"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="404dp"
         android:text="Materiales de tuberia"
-        android:textColor="#012851"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="596dp"
-        android:text="Totales de laterales"
         android:textColor="#012851"
         android:textSize="16sp"
         android:textStyle="bold"

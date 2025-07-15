@@ -7,34 +7,89 @@
     android:layout_height="match_parent"
     tools:context=".riegos.RiegoAspersionAspersorActivity">
 
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="402dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="124dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="402dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="432dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="m3/h"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="399dp" />
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="356dp" />
 
-    <Button
-        android:id="@+id/btn_atras4"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="736dp"
-        android:backgroundTint="#A20724"
-        android:text="Atras"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="392dp"
+        android:text="Lamina bruta"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="356dp"
+        android:text="Caudal máximo"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="mm"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="392dp" />
 
     <Button
         android:id="@+id/btn_siguiente4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="736dp"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="664dp"
         android:backgroundTint="#012851"
         android:text="Siguiente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_atras4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="#A20724"
+        android:text="Atras"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,8 +98,8 @@
         android:id="@+id/btn_siguiente5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="280dp"
         android:backgroundTint="#8BC34A"
         android:text="Calcular"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -79,23 +134,24 @@
         android:id="@+id/et_caudal6"
         android:layout_width="163dp"
         android:layout_height="41dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="460dp"
         android:ems="10"
         android:hint="m3/hr, GPM"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_caudal7"
-        android:layout_width="163dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="584dp"
-        android:ems="10"
-        android:hint="bar,  psi"
-        android:inputType="number"
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="472dp"
+        android:text="Caudal aspersor"
+        android:textColor="#012851"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,8 +159,8 @@
         android:id="@+id/et_caudal8"
         android:layout_width="163dp"
         android:layout_height="41dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="652dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="592dp"
         android:ems="10"
         android:hint="m, ft"
         android:inputType="number"
@@ -112,28 +168,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textView38"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="164dp"
-        android:text="Separación Vertical"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="600dp"
+        android:text="Radio humedo"
         android:textColor="#012851"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="396dp"
-        android:text="Caudal máximo"
-        android:textColor="#012851"
-        android:textSize="16sp"
-        android:textStyle="bold"
+    <EditText
+        android:id="@+id/et_caudal7"
+        android:layout_width="163dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="524dp"
+        android:ems="10"
+        android:hint="bar,  psi"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,8 +196,8 @@
         android:id="@+id/textView37"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="596dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="536dp"
         android:text="Presión aspersor"
         android:textColor="#012851"
         android:textSize="16sp"
@@ -151,51 +206,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/textView30"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="532dp"
-        android:text="Caudal aspersor"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="160dp"
+        android:text="Separación Vertical"
         android:textColor="#012851"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="660dp"
-        android:text="Radio humedo"
-        android:textColor="#012851"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="444dp"
-        android:text="Lamina bruta"
-        android:textColor="#012851"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="mm"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="446dp" />
 
     <TextView
         android:id="@+id/textView31"

@@ -26,7 +26,7 @@
         android:layout_marginStart="308dp"
         android:layout_marginTop="540dp"
         android:buttonTint="@color/dark_blue"
-        android:text="Té"
+        android:text="Tee"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
