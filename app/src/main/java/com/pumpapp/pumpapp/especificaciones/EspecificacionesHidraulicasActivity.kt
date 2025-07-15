@@ -1,5 +1,6 @@
-package com.pumpapp.pumpapp
+package com.pumpapp.pumpapp.especificaciones
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -20,10 +21,13 @@ import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_GOTEO
 import com.pumpapp.pumpapp.MainActivity.Companion.RIEGO_INUNDACION
 import com.pumpapp.pumpapp.MainActivity.Companion.SISTEMA_INTERNACIONAL
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
-import com.pumpapp.pumpapp.riegos.RiegoPorInundacionActivity
+import com.pumpapp.pumpapp.riegos.RiegoInundacionActivity
 import kotlin.math.PI
 import kotlin.math.pow
 import androidx.core.content.edit
+import com.pumpapp.pumpapp.MainActivity
+import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.SistemaUnidades
 import com.pumpapp.pumpapp.calculos.CalculosGenerales
 
 class EspecificacionesHidraulicasActivity : AppCompatActivity() {
@@ -52,7 +56,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         private const val RUGOSIDAD_HIERRO = 1.5e-4
         private const val RUGOSIDAD_PVC = 2.3e-6
 
-        fun limpiarPreferencias(context: android.content.Context) {
+        fun limpiarPreferencias(context: Context) {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
                 clear()
             }
@@ -144,7 +148,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
             val sistemaRiego = intent.getIntExtra(EXTRA_SISTEMA_RIEGO, RIEGO_GOTEO)
             val intent = when (sistemaRiego) {
-                RIEGO_INUNDACION -> Intent(this, RiegoPorInundacionActivity::class.java)
+                RIEGO_INUNDACION -> Intent(this, RiegoInundacionActivity::class.java)
                 //TODO: añadir las demas actividades cuando juanpa las cree
                 else -> Intent(this, MainActivity::class.java)
             }
