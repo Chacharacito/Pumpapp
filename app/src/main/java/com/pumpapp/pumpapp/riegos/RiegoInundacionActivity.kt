@@ -74,7 +74,7 @@ class RiegoInundacionActivity : AppCompatActivity() {
             if (pendienteTerrenoTxt.isEmpty() || longitudSurcoTxt.isEmpty() || longitudSurcoTxt.isEmpty()
                 || anchoSurcoTxt.isEmpty() || tiempoRiegoTxt.isEmpty() || infiltracionSuelo.isEmpty()
             ) {
-
+                Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
 
                 return@setOnClickListener
             }
