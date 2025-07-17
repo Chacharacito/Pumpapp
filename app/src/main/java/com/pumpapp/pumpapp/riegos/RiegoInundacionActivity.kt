@@ -67,7 +67,7 @@ class RiegoInundacionActivity : AppCompatActivity() {
             editTextAnchoSurco.hint = "ft"
             editTextTiempoRiego.hint = "minutos"
         }
-    }
+
 
         val spinnerTexturaSuelo = findViewById<Spinner>(R.id.s_textura_del_suelo)
         val texturas = arrayOf(TEXTURA_ARENA, TEXTURA_FRANCO, TEXTURA_ARCILLA)
