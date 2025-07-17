@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.enums.TipoAccesorio
 import nl.dionsegijn.steppertouch.OnStepCallback
 import nl.dionsegijn.steppertouch.StepperTouch
 
@@ -35,12 +36,16 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
         val editTextPendienteTerreno = findViewById<EditText>(R.id.et_pendiente_del_terreno_2)
         val editTextLongitudCampo = findViewById<EditText>(R.id.et_longitud_del_campo)
+        val editTextCaudalRiego = findViewById<EditText>(R.id.et_caudal_de_riego)
 
         val stepperNumeroCanales = findViewById<StepperTouch>(R.id.st_numero_de_canales)
         stepperNumeroCanales.minValue = 0
         stepperNumeroCanales.sideTapEnabled = true
-
-        val editTextCaudalRiego = findViewById<EditText>(R.id.et_caudal_de_riego)
+        stepperNumeroCanales.addStepCallback(object: OnStepCallback {
+            override fun onStep(value: Int, positive: Boolean) {
+                Toast.makeText(applicationContext, "Prueba", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         val spinnerMaterialTuberia = findViewById<Spinner>(R.id.s_materiales_de_la_tuberia_2)
         val materiales = arrayOf(MATERIAL_PVC, MATERIAL_ACERO, MATERIAL_HIERRO)
@@ -52,6 +57,12 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btn_atras7).setOnClickListener {
             lanzarActividadEspecAccesorios(this@RiegoGoteoActivity)
+        }
+
+        findViewById<Button>(R.id.btn_siguiente7).setOnClickListener {
+            val pendienteTerrenoTxt = editTextPendienteTerreno.text.toString()
+            val longitudCampoTxt = editTextLongitudCampo.text.toString()
+            val caudalRiegoTxt = editTextCaudalRiego.text.toString()
         }
     }
 }
