@@ -42,7 +42,6 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btn_atras3).setOnClickListener {
             lanzarActividadEspecHidraulicas(this@EspecificacionesAccesoriosActivity)
-            MediaPlayer.create(this, R.raw.kara).start()
         }
     }
 }

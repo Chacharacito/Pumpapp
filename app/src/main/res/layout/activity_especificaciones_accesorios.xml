@@ -213,7 +213,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch"
+        android:id="@+id/st_numero_de_canales"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="76dp"
