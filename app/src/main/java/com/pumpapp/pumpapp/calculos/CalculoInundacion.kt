@@ -20,19 +20,19 @@ class CalculoInundacion {
         private fun calcularRadioHidraulico(ancho: Double): Double =
             calcularArea(ancho) / calcularPerimetro(ancho)
 
-        fun velocidadManning(ancho: Double, pendiente: Double, RUGOSIDAD_: Double): Double {
+        fun velocidadManning(ancho: Double, pendiente: Double, RUGOSIDAD: Double): Double {
             val radioHidraulico = calcularRadioHidraulico(ancho)
-            return (1 / RUGOSIDAD_) * radioHidraulico.pow(2.0 / 3.0) * pendiente.pow(0.5)
+            return (1 / RUGOSIDAD) * radioHidraulico.pow(2.0 / 3.0) * pendiente.pow(0.5)
         }
 
         fun calcularCaudal(
             ancho: Double,
             pendiente: Double,
-            RUGOSIDAD_: Double,
+            RUGOSIDAD: Double,
             numeroSurcos: Double
         ): Double {
             val area = calcularArea(ancho) * numeroSurcos
-            val velocidad = velocidadManning(ancho, pendiente, RUGOSIDAD_)
+            val velocidad = velocidadManning(ancho, pendiente, RUGOSIDAD)
             return velocidad * area * 1000.0 * 3600.0
         }
     }

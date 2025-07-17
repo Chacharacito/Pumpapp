@@ -11,8 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
+import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.enums.TipoAccesorio
+import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity
 import nl.dionsegijn.steppertouch.OnStepCallback
 import nl.dionsegijn.steppertouch.StepperTouch
 
@@ -54,6 +57,16 @@ class RiegoGoteoActivity : AppCompatActivity() {
             android.R.layout.simple_list_item_1,
             materiales
         )
+
+        val sistemaUnidades = obtenerSistemaUnidadesDesdePrefs(this@RiegoGoteoActivity)
+
+        if (sistemaUnidades == SistemaUnidades.INTERNACIONAL) {
+            editTextLongitudCampo.hint = "m"
+            editTextCaudalRiego.hint = "m³/s"
+        } else {
+            editTextLongitudCampo.hint = "ft"
+            editTextCaudalRiego.hint = "ft³/s"
+        }
 
         findViewById<Button>(R.id.btn_atras7).setOnClickListener {
             lanzarActividadEspecAccesorios(this@RiegoGoteoActivity)

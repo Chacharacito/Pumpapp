@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
+import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.calcularCaudal
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.velocidadManning
+import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.enums.TipoAccesorio
 import nl.dionsegijn.steppertouch.OnStepCallback
 import nl.dionsegijn.steppertouch.StepperTouch
@@ -51,6 +53,21 @@ class RiegoInundacionActivity : AppCompatActivity() {
 
             }
         })
+
+        val sistemaUnidades = obtenerSistemaUnidadesDesdePrefs(this@RiegoInundacionActivity)
+
+        if (sistemaUnidades == SistemaUnidades.INTERNACIONAL) {
+            editTextLongitudSurco.hint = "m"
+            editTextInfiltracionSuelo.hint = "mm/h"
+            editTextAnchoSurco.hint = "m"
+            editTextTiempoRiego.hint = "minutos"
+        } else {
+            editTextLongitudSurco.hint = "ft"
+            editTextInfiltracionSuelo.hint = "in/h"
+            editTextAnchoSurco.hint = "ft"
+            editTextTiempoRiego.hint = "minutos"
+        }
+    }
 
         val spinnerTexturaSuelo = findViewById<Spinner>(R.id.s_textura_del_suelo)
         val texturas = arrayOf(TEXTURA_ARENA, TEXTURA_FRANCO, TEXTURA_ARCILLA)
@@ -97,6 +114,7 @@ class RiegoInundacionActivity : AppCompatActivity() {
                 Toast.makeText(context, "Aumente pendiente o caudal de la bomba", Toast.LENGTH_SHORT).show()
                 //TODO No dejar avanzar a la siguiente actividad
             }
-        }
+
+
     }
 }
