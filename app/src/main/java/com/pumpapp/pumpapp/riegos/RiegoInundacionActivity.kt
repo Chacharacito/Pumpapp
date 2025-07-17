@@ -5,12 +5,15 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.calcularCaudal
+import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.velocidadManning
 import com.pumpapp.pumpapp.enums.TipoAccesorio
 import nl.dionsegijn.steppertouch.OnStepCallback
 import nl.dionsegijn.steppertouch.StepperTouch
@@ -68,7 +71,32 @@ class RiegoInundacionActivity : AppCompatActivity() {
             val tiempoRiegoTxt = editTextTiempoRiego.text.toString()
             val infiltracionSuelo = editTextInfiltracionSuelo.text.toString()
 
+            if (pendienteTerrenoTxt.isEmpty() || longitudSurcoTxt.isEmpty() || longitudSurcoTxt.isEmpty()
+                || anchoSurcoTxt.isEmpty() || tiempoRiegoTxt.isEmpty() || infiltracionSuelo.isEmpty()
+            ) {
 
+
+                return@setOnClickListener
+            }
+
+            val ancho = anchoSurcoTxt.toDouble()
+            val pendiente = pendienteTerrenoTxt.toDouble()
+
+            //TODO: terminar de definir las variables de abajo
+
+            val caudalmmh = calcularCaudal(ancho, pendiente, rugosidad, numeroSurcos)
+            if (caudalmmh > infiltracion) {
+                val longitudAvance = velocidadManning(ancho, pendiente, rugosidad) / (tiempoRiego * 60)
+                if (longitudAvance >= longitudSurcos) {
+                    Toast.makeText(context, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Disminuya longitud de riego", Toast.LENGTH_SHORT).show()
+                    //TODO No dejar avanzar a la siguiente actividad
+                }
+            } else {
+                Toast.makeText(context, "Aumente pendiente o caudal de la bomba", Toast.LENGTH_SHORT).show()
+                //TODO No dejar avanzar a la siguiente actividad
+            }
         }
     }
 }
