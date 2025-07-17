@@ -76,8 +76,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val friccion1 = CalculosGenerales.calcularFactorFriccion(this, 2.0, 2.0, 3.3)
-        val friccionCintilla = CalculosGenerales.calcularFactorFriccion(this, 2.0, 2.0, 3.4)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

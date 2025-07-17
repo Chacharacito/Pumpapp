@@ -11,6 +11,10 @@ import com.pumpapp.pumpapp.R
 
 class RiegoGoteoActivity : AppCompatActivity() {
 
+    companion object {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

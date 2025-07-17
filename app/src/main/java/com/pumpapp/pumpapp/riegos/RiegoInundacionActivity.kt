@@ -17,6 +17,8 @@ class RiegoInundacionActivity : AppCompatActivity() {
         private const val TEXTURA_ARENA = "Arena"
         private const val TEXTURA_FRANCO = "Franco"
         private const val TEXTURA_ARCILLA = "Arcilla"
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
