@@ -147,7 +147,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch2"
+        android:id="@+id/st_flujo_invertido"
         android:layout_width="95dp"
         android:layout_height="41dp"
         android:layout_marginStart="80dp"
@@ -160,7 +160,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch3"
+        android:id="@+id/st_flujo_normal"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="76dp"
@@ -173,7 +173,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch4"
+        android:id="@+id/st_valvula_presion"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="280dp"
@@ -186,7 +186,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch5"
+        android:id="@+id/st_llave_paso"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="276dp"
@@ -213,7 +213,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/st_numero_de_canales"
+        android:id="@+id/st_bola"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="76dp"
@@ -306,7 +306,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch6"
+        android:id="@+id/st_vuelva_retorno"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="276dp"
@@ -319,7 +319,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch7"
+        android:id="@+id/st_cuarenta_cinco"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="276dp"
@@ -332,7 +332,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch8"
+        android:id="@+id/st_noventa"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="276dp"
@@ -345,7 +345,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch9"
+        android:id="@+id/st_globo"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="76dp"
@@ -358,7 +358,7 @@
         app:stepperTextColor="@color/light_blue" />
 
     <nl.dionsegijn.steppertouch.StepperTouch
-        android:id="@+id/stepperTouch1"
+        android:id="@+id/st_angulo"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="76dp"
