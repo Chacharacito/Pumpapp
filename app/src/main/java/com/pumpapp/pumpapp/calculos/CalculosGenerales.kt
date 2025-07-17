@@ -6,15 +6,12 @@ import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.enums.TipoAccesorio
 
 class CalculosGenerales {
-
     companion object {
-        // Sistema Internacional
-        private const val VISCOSIDAD_SI = 0.000861 // Pa·s
-        private const val DENSIDAD_SI = 997.0      // kg/m³
+        private const val VISCOSIDAD_SI = 0.000861
+        private const val DENSIDAD_SI = 997.0
 
-        // Sistema Imperial
-        private const val VISCOSIDAD_IMPERIAL = 0.000018 // slug/(ft·s)
-        private const val DENSIDAD_IMPERIAL = 1.94       // slug/ft³
+        private const val VISCOSIDAD_IMPERIAL = 0.000018
+        private const val DENSIDAD_IMPERIAL = 1.94
 
         private const val LIMITE_FLUJO_LAMINAR = 2000
         private const val LIMITE_FLUJO_TURBULENTO = 4000
@@ -42,7 +39,7 @@ class CalculosGenerales {
                 0.3009 / (Math.pow(Math.log10((Math.pow(rugosidad / (3.7315 * diametro), 1.0954)) + (Math.pow(5.9802 / numeroDeReynolds, 0.9695))), 2.0))
             } else {
                 Toast.makeText(context, "Flujo transitorio: resultado incierto", Toast.LENGTH_SHORT).show()
-                return -1.0  // Valor especial para indicar “no definido”
+                return -1.0
             }
         }
 

@@ -3,6 +3,7 @@ package com.pumpapp.pumpapp.riegos
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.R
+import nl.dionsegijn.steppertouch.StepperTouch
 
 class RiegoInundacionActivity : AppCompatActivity() {
 
@@ -30,7 +32,13 @@ class RiegoInundacionActivity : AppCompatActivity() {
             insets
         }
 
+        val editTextPendienteTerreno = findViewById<EditText>(R.id.et_pendiente_del_terreno)
+        val editTextLongitudSurco = findViewById<EditText>(R.id.et_longitud_del_surco)
+        val editTextAnchoSurco = findViewById<EditText>(R.id.et_ancho_del_surco)
         val spinnerTexturaSuelo = findViewById<Spinner>(R.id.s_textura_del_suelo)
+        val editTextTiempoRiego = findViewById<EditText>(R.id.et_tiempo_de_riego)
+        val stepperNumeroSurcos = findViewById<StepperTouch>(R.id.st_numero_de_surcos)
+        val editTextInfiltracionSuelo = findViewById<EditText>(R.id.et_infiltracion_del_suelo)
 
         val texturas = arrayOf(TEXTURA_ARENA, TEXTURA_FRANCO, TEXTURA_ARCILLA)
         spinnerTexturaSuelo.adapter = ArrayAdapter(
