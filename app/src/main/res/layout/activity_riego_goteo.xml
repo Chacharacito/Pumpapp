@@ -100,7 +100,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="276dp"
-        android:text="Longitud del campo"
+        android:text="Longitud de cintilla"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_longitud_del_campo"
+        android:id="@+id/et_longitud_de_cintilla"
         android:layout_width="133dp"
         android:layout_height="42dp"
         android:layout_marginStart="192dp"
@@ -138,7 +138,7 @@
         android:layout_height="57dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="188dp"
-        android:text="Pendiente del terreno"
+        android:text="Diametro de cintilla"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -146,13 +146,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_pendiente_del_terreno_2"
+        android:id="@+id/et_diametro_cintilla"
         android:layout_width="133dp"
         android:layout_height="42dp"
         android:layout_marginStart="192dp"
         android:layout_marginTop="188dp"
         android:ems="10"
-        android:hint="%"
+        android:hint="m, ft"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

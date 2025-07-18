@@ -1,19 +1,22 @@
 package com.pumpapp.pumpapp.especificaciones
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecHidraulicas
 import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaRiegoDesdePrefs
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.calculos.CalculosGenerales
 import com.pumpapp.pumpapp.enums.SistemaRiego
 import com.pumpapp.pumpapp.enums.TipoAccesorio
+import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity.Companion.obtenerFactorFriccion
 import com.pumpapp.pumpapp.riegos.RiegoGoteoActivity
 import com.pumpapp.pumpapp.riegos.RiegoInundacionActivity
 import nl.dionsegijn.steppertouch.OnStepCallback
@@ -27,6 +30,23 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
         accesorios[accesorio] = valor
     }
 
+    companion object {
+        const val PREFS_NAME = "especificaciones_accesorios"
+
+        const val EXTRA_PERDIDA_ACCESORIOS = "perdida_accesorios"
+
+        fun limpiarPreferencias(context: Context) {
+            context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
+                clear()
+            }
+        }
+
+        fun obtenerPerdidaAccesorios(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_PERDIDA_ACCESORIOS, 0f).toDouble()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,6 +56,8 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val prefs = getSharedPreferences(EspecificacionesHidraulicasActivity.Companion.PREFS_NAME, MODE_PRIVATE)
 
         val stepperBola = findViewById<StepperTouch>(R.id.st_bola)
         stepperBola.minValue = 0
@@ -142,6 +164,16 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btn_siguiente3).setOnClickListener {
+            prefs.edit().apply {
+                putFloat(EXTRA_PERDIDA_ACCESORIOS,
+                    CalculosGenerales.calcularPerdidaDeAccesorios(
+                        accesorios,
+                        obtenerFactorFriccion(this@EspecificacionesAccesoriosActivity)).toFloat()
+                )
+
+                apply()
+            }
+
             val sistemaRiego =
                 obtenerSistemaRiegoDesdePrefs(this@EspecificacionesAccesoriosActivity)
 
