@@ -165,6 +165,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
             if (altura == null || caudal == null || diametro == null || presion == null) {
                 Toast.makeText(this, "Todos los campos deben contener números válidos", Toast.LENGTH_SHORT).show()
+
                 return@setOnClickListener
             }
 

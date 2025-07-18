@@ -29,11 +29,11 @@ class CalculoInundacion {
         fun calcularCaudal(
             ancho: Double,
             pendiente: Double,
-            RUGOSIDAD: Double,
+            rugosidad: Double,
             numeroSurcos: Int
         ): Double {
             val area = calcularArea(ancho) * numeroSurcos
-            val velocidad = velocidadManning(ancho, pendiente, RUGOSIDAD)
+            val velocidad = velocidadManning(ancho, pendiente, rugosidad)
             return velocidad * area * 1000.0 * 3600.0
         }
     }
