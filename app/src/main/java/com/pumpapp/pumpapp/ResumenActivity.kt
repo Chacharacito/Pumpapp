@@ -49,10 +49,6 @@ class ResumenActivity : AppCompatActivity() {
         var velocidadCintilla = 0.0
         var perdidadCintilla = 0.0
 
-        val cargaBomba = (presionBomba / GRAVEDAD) + alturaBomba + ((velocidadTuberia + velocidadCintilla).pow(2.0) / (2 * GRAVEDAD)) + perdidasTotal
-        val potenciaDeBomba = cargaBomba * GRAVEDAD * caudal
-        potenciaBomba.setText(potenciaDeBomba.toString())
-
         caudalDeSalida.setText(caudal.toString())
 
         if (sistemaRiego == SistemaRiego.RIEGO_GOTEO) {
@@ -64,6 +60,10 @@ class ResumenActivity : AppCompatActivity() {
 
         val perdidasTotal = (velocidadTuberia.pow(2.0) / (2 * GRAVEDAD)) * perdidasAcesorios + ((velocidadCintilla.pow(2.0)) / (2 * GRAVEDAD)) * perdidadCintilla
         perdidasTotales.setText(perdidasTotal.toString())
+
+        val cargaBomba = (presionBomba / GRAVEDAD) + alturaBomba + ((velocidadTuberia + velocidadCintilla).pow(2.0) / (2 * GRAVEDAD)) + perdidasTotal
+        val potenciaDeBomba = cargaBomba * GRAVEDAD * caudal
+        potenciaBomba.setText(potenciaDeBomba.toString())
 
         val presionSalidad = presionBomba - (GRAVEDAD * alturaBomba) + perdidasTotal
         presion.setText(presionSalidad.toString())
