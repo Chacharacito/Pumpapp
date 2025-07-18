@@ -41,9 +41,11 @@ class ResumenActivity : AppCompatActivity() {
 
         if (sistemaRiego == SistemaRiego.RIEGO_GOTEO) {
             val perdidadCintilla = RiegoGoteoActivity.obtenerPerdidasCintilla(this@ResumenActivity)
+            val velocidadCintilla = RiegoGoteoActivity.o
         }
 
 
+        perdidasTotales =
 
         findViewById<Button>(R.id.btn_inicio).setOnClickListener {
             lanzarActividadPrincipal(this@ResumenActivity)
