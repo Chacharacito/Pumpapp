@@ -11,7 +11,9 @@ import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadPrincipal
 import com.pumpapp.pumpapp.enums.SistemaRiego
 import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity
+import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity
 import com.pumpapp.pumpapp.riegos.RiegoGoteoActivity
+import kotlin.math.pow
 
 class ResumenActivity : AppCompatActivity() {
 
@@ -39,13 +41,20 @@ class ResumenActivity : AppCompatActivity() {
         val perdidasAcesorios = EspecificacionesAccesoriosActivity.obtenerPerdidaAccesorios(this@ResumenActivity)
         val sistemaRiego = MainActivity.obtenerSistemaRiegoDesdePrefs(this@ResumenActivity)
 
+        var velocidadCintilla = 0.0
+        var perdidadCintilla = 0.0
+
         if (sistemaRiego == SistemaRiego.RIEGO_GOTEO) {
-            val perdidadCintilla = RiegoGoteoActivity.obtenerPerdidasCintilla(this@ResumenActivity)
-            val velocidadCintilla = RiegoGoteoActivity.o
+            perdidadCintilla = RiegoGoteoActivity.obtenerPerdidasCintilla(this@ResumenActivity)
+            velocidadCintilla = RiegoGoteoActivity.obtenerVelocidad(this@ResumenActivity)
+            velocidadFluida.setText(velocidadCintilla.toString())
+            diametroCintilla.setText(RiegoGoteoActivity)
         }
 
+        val velocidadTuberia = EspecificacionesHidraulicasActivity.obtenerVelocidadFluido(this@ResumenActivity)
 
-        perdidasTotales =
+        val perdidasTotal = (velocidadTuberia.pow(2.0) / (2 * 9.8)) * perdidasAcesorios + ((velocidadCintilla.pow(2.0)) / (2 * 9.8)) * perdidadCintilla
+        perdidasTotales.setText(perdidasTotal.toString())
 
         findViewById<Button>(R.id.btn_inicio).setOnClickListener {
             lanzarActividadPrincipal(this@ResumenActivity)
