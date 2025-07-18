@@ -18,6 +18,7 @@ import com.pumpapp.pumpapp.enums.SistemaRiego
 import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesAccesoriosActivity
 import com.pumpapp.pumpapp.especificaciones.EspecificacionesHidraulicasActivity
+import com.pumpapp.pumpapp.riegos.RiegoGoteoActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +84,8 @@ class MainActivity : AppCompatActivity() {
 
         // Limpiamos preferencias
         EspecificacionesHidraulicasActivity.limpiarPreferencias(this@MainActivity)
+        EspecificacionesAccesoriosActivity.limpiarPreferencias(this@MainActivity)
+        RiegoGoteoActivity.limpiarPreferencias(this@MainActivity)
 
         val spinnerSistema = findViewById<Spinner>(R.id.s_sistema_unidades)
 

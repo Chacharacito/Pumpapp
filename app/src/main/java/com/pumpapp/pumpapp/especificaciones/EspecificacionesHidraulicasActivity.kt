@@ -40,7 +40,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         const val EXTRA_VELOCIDAD_FLUIDO = "velocidad_fluido"
         const val EXTRA_RUGOSIDAD = "rugosidad"
         const val EXTRA_NUMERO_REYNOLDS = "nro_reynolds"
-        const val EXTRA_FACTOR_FRICCION = "factorFriccion"
+        const val EXTRA_FACTOR_FRICCION = "factor_friccion"
 
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_PLASTICO = "Plástico"

@@ -15,9 +15,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
-import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_ARCILLOSO
-import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_ARENOSO
-import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_LIMOSO
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.calcularCaudal
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.velocidadManning
 import com.pumpapp.pumpapp.enums.SistemaUnidades
@@ -30,6 +27,10 @@ class RiegoInundacionActivity : AppCompatActivity() {
         private const val TEXTURA_ARENA = "Arena"
         private const val TEXTURA_FRANCO = "Franco"
         private const val TEXTURA_ARCILLA = "Arcilla"
+
+        const val RUGOSIDAD_ARCILLOSO = 0.026
+        const val RUGOSIDAD_ARENOSO = 0.022
+        const val RUGOSIDAD_LIMOSO = 0.021
 
         private var rugosidad = 0.0
     }
