@@ -128,8 +128,6 @@ class RiegoInundacionActivity : AppCompatActivity() {
             val tiempoRiego = tiempoRiegoTxt.toDouble()
             val numeroSurcos = stepperNumeroSurcos.count
 
-            Toast.makeText(this, "${numeroSurcos}", Toast.LENGTH_SHORT).show()
-
             val caudalmmh = calcularCaudal(ancho, pendiente, rugosidad, numeroSurcos)
             if (caudalmmh > infiltracion) {
                 val longitudAvance =
@@ -139,13 +137,11 @@ class RiegoInundacionActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Disminuya longitud de riego", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
-                    //TODO No dejar avanzar a la siguiente actividad
                 }
             } else {
                 Toast.makeText(this, "Aumente pendiente o caudal de la bomba", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
-                //TODO No dejar avanzar a la siguiente actividad
             }
         }
     }
