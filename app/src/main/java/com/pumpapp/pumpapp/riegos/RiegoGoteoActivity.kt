@@ -35,6 +35,7 @@ class RiegoGoteoActivity : AppCompatActivity() {
         const val EXTRA_NUMERO_REYNOLDS = "nro_reynolds"
         const val EXTRA_FACTOR_FRICCION = "factor_friccion"
         const val EXTRA_PERDIDAS_CINTILLA = "perdidas_cintilla"
+        const val EXTRA_VELOCIDAD = "velocidad"
 
         fun limpiarPreferencias(context: Context) {
             context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit {
@@ -55,6 +56,11 @@ class RiegoGoteoActivity : AppCompatActivity() {
         fun obtenerPerdidasCintilla(context: Context): Double {
             val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
             return prefs.getFloat(EXTRA_PERDIDAS_CINTILLA, 0f).toDouble()
+        }
+
+        fun obtenerVelocidad(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_VELOCIDAD, 0f).toDouble()
         }
     }
 
@@ -127,6 +133,8 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
                 val areaTuberia = (PI * diametroCintilla.pow(2)) / 4
                 val velocidad = caudalRiego / areaTuberia
+
+                putFloat(EXTRA_VELOCIDAD, velocidad.toFloat())
 
                 val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(velocidad, diametroCintilla, sistemaUnidades)
 
