@@ -43,6 +43,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         const val EXTRA_FACTOR_FRICCION = "factor_friccion"
         const val EXTRA_ALTURA = "altura"
         const val EXTRA_PRESION = "presion"
+        const val EXTRA_CAUDAL = "caudal"
 
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_PLASTICO = "Plástico"
@@ -68,6 +69,11 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
         fun obtenerVelocidadFluido(context: Context): Double {
             val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
             return prefs.getFloat(EXTRA_VELOCIDAD_FLUIDO, 0f).toDouble()
+        }
+
+        fun obtenerCaudal(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_CAUDAL, 0f).toDouble()
         }
 
         fun obtenerRugosidad(context: Context): Double {
@@ -196,6 +202,7 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
                 putFloat(EXTRA_RUGOSIDAD, rugosidad.toFloat())
                 putFloat(EXTRA_PRESION, presion.toFloat())
                 putFloat(EXTRA_ALTURA, altura.toFloat())
+                putFloat(EXTRA_CAUDAL, caudal.toFloat())
 
                 val numeroReynolds = CalculosGenerales.calcularNumeroReynolds(
                     velocidadFluido,

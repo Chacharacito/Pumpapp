@@ -37,6 +37,7 @@ class RiegoGoteoActivity : AppCompatActivity() {
         const val EXTRA_FACTOR_FRICCION = "factor_friccion"
         const val EXTRA_PERDIDAS_CINTILLA = "perdidas_cintilla"
         const val EXTRA_VELOCIDAD = "velocidad"
+        const val EXTRA_DIAMETRO_CINTILLA = "diametro_cintilla"
 
         const val RUGOSIDAD_PLASTICO = 3.0e-7
         const val RUGOSIDAD_PEAD = 1.5e-3
@@ -57,6 +58,11 @@ class RiegoGoteoActivity : AppCompatActivity() {
         fun obtenerFactorFriccion(context: Context): Double {
             val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
             return prefs.getFloat(EXTRA_FACTOR_FRICCION, 0f).toDouble()
+        }
+
+        fun obtenerDiemtroCintilla(context: Context): Double {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getFloat(EXTRA_DIAMETRO_CINTILLA, 0f).toDouble()
         }
 
         fun obtenerPerdidasCintilla(context: Context): Double {
@@ -181,6 +187,8 @@ class RiegoGoteoActivity : AppCompatActivity() {
                 val perdidasCintilla = CalculoPorGoteo.perdidasCintilla(numeroCanales, longitudCintilla, diametroCintilla, factorFriccion)
 
                 putFloat(EXTRA_PERDIDAS_CINTILLA, perdidasCintilla.toFloat())
+
+                putFloat(EXTRA_DIAMETRO_CINTILLA, diametroCintilla.toFloat())
 
                 apply()
             }
