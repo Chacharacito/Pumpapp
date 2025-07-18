@@ -158,11 +158,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
             val diametroTxt = editTextDiametro.text.toString()
             val presionTxt = editTextPresion.text.toString()
 
-            if (alturaTxt.isEmpty() || caudalTxt.isEmpty() || diametroTxt.isEmpty() || presionTxt.isEmpty()) {
-                Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
             val altura = alturaTxt.toDoubleOrNull()
             val caudal = caudalTxt.toDoubleOrNull()
             val diametro = diametroTxt.toDoubleOrNull()
