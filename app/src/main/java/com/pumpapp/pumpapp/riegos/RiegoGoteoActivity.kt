@@ -1,6 +1,8 @@
 package com.pumpapp.pumpapp.riegos
 
 import android.content.Context
+import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -17,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.ResumenActivity
 import com.pumpapp.pumpapp.calculos.CalculoPorGoteo
 import com.pumpapp.pumpapp.calculos.CalculosGenerales
 import com.pumpapp.pumpapp.enums.SistemaUnidades
@@ -192,6 +195,9 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
                 apply()
             }
+            val intent = Intent(this, ResumenActivity::class.java)
+            startActivity(intent)
+            MediaPlayer.create(this, R.raw.kara).start()
         }
     }
 }

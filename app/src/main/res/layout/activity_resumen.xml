@@ -155,6 +155,78 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_unidadpotencia"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="172dp"
+        android:text="kWa"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_unidadcaudal"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="208dp"
+        android:text="m³/s"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_unidadespresion"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="244dp"
+        android:text="kPa"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_unidadvelocidad"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="544dp"
+        android:text="m/s"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_unidaddiametro"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="584dp"
+        android:text="m"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_unidadperdidad"
+        android:layout_width="57dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="624dp"
+        android:text="m"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView29"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
