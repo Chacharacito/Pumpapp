@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import com.pumpapp.pumpapp.enums.SistemaUnidades
 import com.pumpapp.pumpapp.enums.TipoAccesorio
+import kotlin.math.pow
 
 class CalculosGenerales {
     companion object {

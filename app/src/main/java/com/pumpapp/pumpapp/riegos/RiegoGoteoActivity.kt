@@ -25,6 +25,9 @@ class RiegoGoteoActivity : AppCompatActivity() {
         private const val MATERIAL_PVC = "PVC"
         private const val MATERIAL_ACERO = "Acero"
         private const val MATERIAL_HIERRO = "Hierro"
+
+        const val RUGOSIDAD_PLASTICO = 3.0e-7
+        const val RUGOSIDAD_PEAD = 1.5e-3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +46,7 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
         val stepperNumeroCanales = findViewById<StepperTouch>(R.id.st_numero_de_canales)
         stepperNumeroCanales.minValue = 0
+        stepperNumeroCanales.maxValue = 10
         stepperNumeroCanales.sideTapEnabled = true
         stepperNumeroCanales.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {

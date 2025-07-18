@@ -5,8 +5,7 @@ import com.pumpapp.pumpapp.enums.SistemaUnidades
 
 class CalculoPorGoteo {
     companion object {
-        const val RUGOSIDAD_PLASTICO = 3.0e-7
-        const val RUGOSIDAD_PEAD = 1.5e-3
+
         //TODO Para el spinner de material de riego por goteo
 
         private fun calculosAnteriores (
@@ -25,7 +24,7 @@ class CalculoPorGoteo {
             )
         }
 
-        private fun perdidasCintilla (
+        fun perdidasCintilla (
             context: Context,
             cantidad: Int,
             longitudCintilla: Double,
