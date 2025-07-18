@@ -160,12 +160,19 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
             if (alturaTxt.isEmpty() || caudalTxt.isEmpty() || diametroTxt.isEmpty() || presionTxt.isEmpty()) {
                 Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
-
                 return@setOnClickListener
             }
 
-            val diametro = diametroTxt.toDouble()
-            val caudal = caudalTxt.toDouble()
+            val altura = alturaTxt.toDoubleOrNull()
+            val caudal = caudalTxt.toDoubleOrNull()
+            val diametro = diametroTxt.toDoubleOrNull()
+            val presion = presionTxt.toDoubleOrNull()
+
+            if (altura == null || caudal == null || diametro == null || presion == null) {
+                Toast.makeText(this, "Todos los campos deben contener números válidos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val areaTuberia = (PI * diametro.pow(2)) / 4
             val velocidadFluido = caudal / areaTuberia
 
@@ -188,7 +195,6 @@ class EspecificacionesHidraulicasActivity : AppCompatActivity() {
 
                 if (numeroReynolds < 0) {
                     Toast.makeText(this@EspecificacionesHidraulicasActivity, "Número de Reynolds erróneo", Toast.LENGTH_SHORT).show()
-
                     return@setOnClickListener
                 }
 
