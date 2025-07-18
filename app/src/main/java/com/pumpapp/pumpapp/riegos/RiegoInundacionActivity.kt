@@ -134,7 +134,7 @@ class RiegoInundacionActivity : AppCompatActivity() {
             val caudalmmh = calcularCaudal(ancho, pendiente, rugosidad, numeroSurcos)
             if (caudalmmh > infiltracion) {
                 val longitudAvance =
-                    velocidadManning(ancho, pendiente, rugosidad) / (tiempoRiego * 60)
+                    velocidadManning(ancho, pendiente, rugosidad) * (tiempoRiego * 60)
                 if (longitudAvance >= longitudSurcos) {
                     Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
                 } else {
