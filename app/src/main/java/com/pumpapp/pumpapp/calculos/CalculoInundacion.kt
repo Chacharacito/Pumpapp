@@ -29,7 +29,7 @@ class CalculoInundacion {
             ancho: Double,
             pendiente: Double,
             RUGOSIDAD: Double,
-            numeroSurcos: Double
+            numeroSurcos: Int
         ): Double {
             val area = calcularArea(ancho) * numeroSurcos
             val velocidad = velocidadManning(ancho, pendiente, RUGOSIDAD)

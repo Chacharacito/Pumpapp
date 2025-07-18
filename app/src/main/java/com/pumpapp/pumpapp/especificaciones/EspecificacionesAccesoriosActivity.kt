@@ -39,6 +39,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperBola = findViewById<StepperTouch>(R.id.st_bola)
         stepperBola.minValue = 0
+        stepperBola.maxValue = 10
         stepperBola.sideTapEnabled = true
         stepperBola.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -48,6 +49,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperAngulo = findViewById<StepperTouch>(R.id.st_angulo)
         stepperAngulo.minValue = 0
+        stepperAngulo.maxValue = 10
         stepperAngulo.sideTapEnabled = true
         stepperAngulo.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -57,6 +59,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperGlobo = findViewById<StepperTouch>(R.id.st_globo)
         stepperGlobo.minValue = 0
+        stepperGlobo.maxValue = 10
         stepperGlobo.sideTapEnabled = true
         stepperGlobo.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -66,6 +69,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperNoventa = findViewById<StepperTouch>(R.id.st_noventa)
         stepperNoventa.minValue = 0
+        stepperNoventa.maxValue = 10
         stepperNoventa.sideTapEnabled = true
         stepperNoventa.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -75,6 +79,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperCuarentaYCinco = findViewById<StepperTouch>(R.id.st_cuarenta_cinco)
         stepperCuarentaYCinco.minValue = 0
+        stepperCuarentaYCinco.maxValue = 10
         stepperCuarentaYCinco.sideTapEnabled = true
         stepperCuarentaYCinco.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -84,6 +89,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperVueltaRetorno = findViewById<StepperTouch>(R.id.st_vuelva_retorno)
         stepperVueltaRetorno.minValue = 0
+        stepperVueltaRetorno.maxValue = 10
         stepperVueltaRetorno.sideTapEnabled = true
         stepperVueltaRetorno.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -93,6 +99,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperFlujoNormal = findViewById<StepperTouch>(R.id.st_flujo_normal)
         stepperFlujoNormal.minValue = 0
+        stepperFlujoNormal.maxValue = 10
         stepperFlujoNormal.sideTapEnabled = true
         stepperFlujoNormal.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -102,6 +109,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperFlujoInvertido = findViewById<StepperTouch>(R.id.st_flujo_invertido)
         stepperFlujoInvertido.minValue = 0
+        stepperFlujoInvertido.minValue = 10
         stepperFlujoInvertido.sideTapEnabled = true
         stepperFlujoInvertido.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -111,6 +119,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperLlavePaso = findViewById<StepperTouch>(R.id.st_llave_paso)
         stepperLlavePaso.minValue = 0
+        stepperLlavePaso.maxValue = 10
         stepperLlavePaso.sideTapEnabled = true
         stepperLlavePaso.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -120,6 +129,7 @@ class EspecificacionesAccesoriosActivity : AppCompatActivity() {
 
         val stepperValvulaPresion = findViewById<StepperTouch>(R.id.st_valvula_presion)
         stepperValvulaPresion.minValue = 0
+        stepperValvulaPresion.maxValue = 10
         stepperValvulaPresion.sideTapEnabled = true
         stepperValvulaPresion.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {

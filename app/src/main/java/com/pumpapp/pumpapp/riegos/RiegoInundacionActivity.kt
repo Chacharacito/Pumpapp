@@ -1,6 +1,8 @@
 package com.pumpapp.pumpapp.riegos
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -13,10 +15,12 @@ import androidx.core.view.WindowInsetsCompat
 import com.pumpapp.pumpapp.MainActivity.Companion.lanzarActividadEspecAccesorios
 import com.pumpapp.pumpapp.MainActivity.Companion.obtenerSistemaUnidadesDesdePrefs
 import com.pumpapp.pumpapp.R
+import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_ARCILLOSO
+import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_ARENOSO
+import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.RUGOSIDAD_LIMOSO
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.calcularCaudal
 import com.pumpapp.pumpapp.calculos.CalculoInundacion.Companion.velocidadManning
 import com.pumpapp.pumpapp.enums.SistemaUnidades
-import com.pumpapp.pumpapp.enums.TipoAccesorio
 import nl.dionsegijn.steppertouch.OnStepCallback
 import nl.dionsegijn.steppertouch.StepperTouch
 
@@ -26,6 +30,8 @@ class RiegoInundacionActivity : AppCompatActivity() {
         private const val TEXTURA_ARENA = "Arena"
         private const val TEXTURA_FRANCO = "Franco"
         private const val TEXTURA_ARCILLA = "Arcilla"
+
+        private var rugosidad = 0.0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +52,8 @@ class RiegoInundacionActivity : AppCompatActivity() {
         val editTextInfiltracionSuelo = findViewById<EditText>(R.id.et_infiltracion_del_suelo)
 
         val stepperNumeroSurcos = findViewById<StepperTouch>(R.id.st_numero_de_surcos)
-        stepperNumeroSurcos.minValue = 0
+        stepperNumeroSurcos.minValue = 1
+        stepperNumeroSurcos.maxValue = 10
         stepperNumeroSurcos.sideTapEnabled = true
         stepperNumeroSurcos.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
@@ -68,7 +75,6 @@ class RiegoInundacionActivity : AppCompatActivity() {
             editTextTiempoRiego.hint = "minutos"
         }
 
-
         val spinnerTexturaSuelo = findViewById<Spinner>(R.id.s_textura_del_suelo)
         val texturas = arrayOf(TEXTURA_ARENA, TEXTURA_FRANCO, TEXTURA_ARCILLA)
         spinnerTexturaSuelo.adapter = ArrayAdapter(
@@ -76,6 +82,25 @@ class RiegoInundacionActivity : AppCompatActivity() {
             android.R.layout.simple_list_item_1,
             texturas
         )
+
+        spinnerTexturaSuelo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                rugosidad = when (texturas[position]) {
+                    TEXTURA_ARENA -> RUGOSIDAD_ARENOSO
+                    TEXTURA_FRANCO -> RUGOSIDAD_LIMOSO
+                    else -> RUGOSIDAD_ARCILLOSO
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                rugosidad = RUGOSIDAD_ARENOSO
+            }
+        }
 
         findViewById<Button>(R.id.btn_atras2).setOnClickListener {
             lanzarActividadEspecAccesorios(this@RiegoInundacionActivity)
@@ -98,23 +123,30 @@ class RiegoInundacionActivity : AppCompatActivity() {
 
             val ancho = anchoSurcoTxt.toDouble()
             val pendiente = pendienteTerrenoTxt.toDouble()
+            val infiltracion = infiltracionSuelo.toDouble()
+            val longitudSurcos = longitudSurcoTxt.toDouble()
+            val tiempoRiego = tiempoRiegoTxt.toDouble()
+            val numeroSurcos = stepperNumeroSurcos.count
 
-            //TODO: terminar de definir las variables de abajo
+            Toast.makeText(this, "${numeroSurcos}", Toast.LENGTH_SHORT).show()
 
             val caudalmmh = calcularCaudal(ancho, pendiente, rugosidad, numeroSurcos)
             if (caudalmmh > infiltracion) {
-                val longitudAvance = velocidadManning(ancho, pendiente, rugosidad) / (tiempoRiego * 60)
+                val longitudAvance =
+                    velocidadManning(ancho, pendiente, rugosidad) / (tiempoRiego * 60)
                 if (longitudAvance >= longitudSurcos) {
-                    Toast.makeText(context, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context, "Disminuya longitud de riego", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Disminuya longitud de riego", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
                     //TODO No dejar avanzar a la siguiente actividad
                 }
             } else {
-                Toast.makeText(context, "Aumente pendiente o caudal de la bomba", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Aumente pendiente o caudal de la bomba", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
                 //TODO No dejar avanzar a la siguiente actividad
             }
-
-
+        }
     }
 }
