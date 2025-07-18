@@ -114,20 +114,19 @@ class RiegoInundacionActivity : AppCompatActivity() {
             val tiempoRiegoTxt = editTextTiempoRiego.text.toString()
             val infiltracionSuelo = editTextInfiltracionSuelo.text.toString()
 
-            if (pendienteTerrenoTxt.isEmpty() || longitudSurcoTxt.isEmpty() || longitudSurcoTxt.isEmpty()
-                || anchoSurcoTxt.isEmpty() || tiempoRiegoTxt.isEmpty() || infiltracionSuelo.isEmpty()
-            ) {
-                Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
+            val ancho = anchoSurcoTxt.toDoubleOrNull()
+            val pendiente = pendienteTerrenoTxt.toDoubleOrNull()
+            val infiltracion = infiltracionSuelo.toDoubleOrNull()
+            val longitudSurcos = longitudSurcoTxt.toDoubleOrNull()
+            val tiempoRiego = tiempoRiegoTxt.toDoubleOrNull()
+            val numeroSurcos = stepperNumeroSurcos.count
+
+            if (pendiente == null || longitudSurcos == null
+                || ancho == null || tiempoRiego == null || infiltracion == null) {
+                Toast.makeText(this, "Todos los campos deben contener números válidos", Toast.LENGTH_SHORT).show()
 
                 return@setOnClickListener
             }
-
-            val ancho = anchoSurcoTxt.toDouble()
-            val pendiente = pendienteTerrenoTxt.toDouble()
-            val infiltracion = infiltracionSuelo.toDouble()
-            val longitudSurcos = longitudSurcoTxt.toDouble()
-            val tiempoRiego = tiempoRiegoTxt.toDouble()
-            val numeroSurcos = stepperNumeroSurcos.count
 
             val caudalmmh = calcularCaudal(ancho, pendiente, rugosidad, numeroSurcos)
             if (caudalmmh > infiltracion) {

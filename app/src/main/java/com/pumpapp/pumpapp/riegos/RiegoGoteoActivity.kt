@@ -82,10 +82,10 @@ class RiegoGoteoActivity : AppCompatActivity() {
 
         val stepperNumeroCanales = findViewById<StepperTouch>(R.id.st_numero_de_canales)
         stepperNumeroCanales.minValue = 0
+        stepperNumeroCanales.maxValue = 10
         stepperNumeroCanales.sideTapEnabled = true
         stepperNumeroCanales.addStepCallback(object: OnStepCallback {
             override fun onStep(value: Int, positive: Boolean) {
-                Toast.makeText(applicationContext, "Prueba", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -137,16 +137,16 @@ class RiegoGoteoActivity : AppCompatActivity() {
             val caudalRiegoTxt = editTextCaudalRiego.text.toString()
             val numeroCanales = stepperNumeroCanales.count
 
-            if (diametroCintillaTxt == null || longitudCintillaTxt == null || caudalRiegoTxt == null) {
-                Toast.makeText(this, "No deben haber campos vacíos", Toast.LENGTH_SHORT).show()
-
-                return@setOnClickListener
-            }
-
             prefs.edit().apply {
-                val diametroCintilla = diametroCintillaTxt.toDouble()
-                val longitudCintilla = longitudCintillaTxt.toDouble()
-                val caudalRiego = caudalRiegoTxt.toDouble()
+                val diametroCintilla = diametroCintillaTxt.toDoubleOrNull()
+                val longitudCintilla = longitudCintillaTxt.toDoubleOrNull()
+                val caudalRiego = caudalRiegoTxt.toDoubleOrNull()
+
+                if (diametroCintilla == null || longitudCintilla == null || caudalRiego == null) {
+                    Toast.makeText(applicationContext, "Todos los campos deben contener números válidos", Toast.LENGTH_SHORT).show()
+
+                    return@setOnClickListener
+                }
 
                 val areaTuberia = (PI * diametroCintilla.pow(2)) / 4
                 val velocidad = caudalRiego / areaTuberia

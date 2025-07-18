@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/et_potencia"
         android:layout_width="102dp"
         android:layout_height="46dp"
         android:layout_marginStart="60dp"
@@ -115,7 +115,7 @@
         android:layout_marginTop="276dp"
         android:ems="10"
         android:hint="m, ft"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,7 +153,7 @@
         android:layout_marginTop="188dp"
         android:ems="10"
         android:hint="m, ft"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -165,7 +165,7 @@
         android:layout_marginTop="448dp"
         android:ems="10"
         android:hint="m, ft"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="541dp"
-        android:text="Caudal de riego:"
+        android:text="Velocidad del fluido:"
         android:textColor="@color/dark_blue"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="582dp"
-        android:text="Diametro de la tuberia:"
+        android:text="Diametro de la cintilla:"
         android:textColor="@color/dark_blue"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -119,13 +119,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_pdf"
+        android:id="@+id/btn_creditos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="673dp"
         android:backgroundTint="@color/green"
-        android:text="Descargar PDF"
+        android:text="Ver creditos"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -217,12 +217,12 @@
         app:srcCompat="@drawable/energia" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/tv_potencia"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="172dp"
-        android:text="Potencia"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -230,12 +230,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/tv_caudal"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="208dp"
-        android:text="Cudal de salida"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -243,12 +243,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/tv_presion"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="244dp"
-        android:text="Presion"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -256,12 +256,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/tv_velocidad"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="544dp"
-        android:text="Caudal de riego"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -269,12 +269,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/tv_diametro"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="585dp"
-        android:text="Diametro de la tuberia"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -282,12 +282,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/tv_perdidas"
         android:layout_width="77dp"
         android:layout_height="24dp"
         android:layout_marginStart="266dp"
         android:layout_marginTop="624dp"
-        android:text="Perdidas totales"
+        android:text="null"
         android:textColor="@color/dark_blue"
         android:textSize="16sp"
         android:textStyle="normal"

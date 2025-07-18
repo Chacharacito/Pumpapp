@@ -39,7 +39,7 @@
         android:layout_marginTop="437dp"
         android:ems="10"
         android:hint="minutos"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
         android:layout_marginTop="564dp"
         android:ems="10"
         android:hint="mm/h"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -166,7 +166,7 @@
         android:layout_marginTop="163dp"
         android:ems="10"
         android:hint="%"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -178,7 +178,7 @@
         android:layout_marginTop="229dp"
         android:ems="10"
         android:hint="m"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -190,7 +190,7 @@
         android:layout_marginTop="292dp"
         android:ems="10"
         android:hint="m"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
