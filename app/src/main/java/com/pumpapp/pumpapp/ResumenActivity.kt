@@ -1,5 +1,7 @@
 package com.pumpapp.pumpapp
 
+import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -92,6 +94,12 @@ class ResumenActivity : AppCompatActivity() {
 
         val presionSalida = presionBomba - (GRAVEDAD * alturaBomba) + perdidasTotal
         presion.text = "%.2f".format(presionSalida)
+
+        findViewById<Button>(R.id.btn_creditos).setOnClickListener {
+            val intent = Intent(this, CreditosActivity::class.java)
+            startActivity(intent)
+            MediaPlayer.create(this, R.raw.kara).start()
+        }
 
         findViewById<Button>(R.id.btn_inicio).setOnClickListener {
             lanzarActividadPrincipal(this)
